@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <!-- 
         Chosen Palette: Hwawon Peacock Green Palette (Peacock Green, Ink Black, Stone Gray, Parchment White)
-        Application Structure Plan: The final portfolio SPA for '화원'. The structure is revised to feature the 'Star of Hwawon' philosophy as a central narrative element. The flow is: Hero -> About -> Mission -> Philosophy (Star of Hwawon) -> Services -> Works -> Q&A. This narrative places the core brand philosophy at the heart of the user journey.
+        Application Structure Plan: The final portfolio SPA for '화원'. The structure is revised to feature the 'Trinity System' philosophy as a central narrative element. The flow is: Hero -> About -> Mission -> Philosophy (Trinity System) -> Services -> Works -> Q&A. This narrative places the core brand philosophy at the heart of the user journey.
         Visualization & Content Choices: 
-        - Star of Hwawon (New Core Section) -> A multi-part visualization. It first shows two separate triangle diagrams, then a connecting symbol, and finally a combined six-pointed star diagram, all built with HTML/CSS. This sequence tells the story of the philosophy's synthesis.
-        - Gemini API Q&A -> The AI persona's prompt is deeply updated to reason based on the full 'Star of Hwawon' concept, explaining how the two triangles merge to achieve 'a robust elegance'.
+        - Trinity System (New Core Section) -> A multi-part visualization. It first shows two separate triangle diagrams, then a connecting symbol, and finally a combined six-pointed star diagram, all built with HTML/CSS. This sequence tells the story of the philosophy's synthesis.
+        - Gemini API Q&A -> The AI persona's prompt is deeply updated to reason based on the full 'Trinity System' concept, explaining how the two triangles merge to achieve 'a robust elegance'.
         - Services -> Section title and content updated as per user request.
         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
     -->
@@ -24,6 +24,9 @@
             --stone-gray: #555555;
             --parchment-white: #FBFBF6;
             --dark-gray: #555555;
+        }
+        html {
+            scroll-padding-top: 180px; /* Header height for smooth scrolling */
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -95,39 +98,6 @@
         .down-bottom { bottom: -25px; left: 50%; transform: translateX(-50%) rotate(180deg); color: var(--peacock-green); }
         .down-left { top: -20px; left: -60px; transform: rotate(180deg); color: var(--peacock-green); }
         .down-right { top: -20px; right: -60px; transform: rotate(180deg); color: var(--peacock-green); }
-
-        .star-diagram-container {
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 1 / 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .star-wrapper {
-            position: relative;
-            width: 300px;
-            height: 346px; /* height = width * sqrt(3) */
-        }
-        .star-triangle {
-            position: absolute;
-            left: 50%;
-            width: 300px;
-            height: 260px; /* width * sqrt(3)/2 */
-            background-color: transparent;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-        .star-triangle-up {
-            top: 0;
-            transform: translateX(-50%);
-            border: 2px solid var(--stone-gray);
-        }
-        .star-triangle-down {
-            bottom: 0;
-            transform: translateX(-50%) rotate(180deg);
-            border: 2px solid var(--peacock-green);
-        }
         .card-img-container {
             background-color: #EAEADE;
             transition: transform 0.4s ease;
@@ -157,7 +127,7 @@
                 <a href="#philosophy" class="nav-link font-medium" data-section="philosophy">philosophy</a>
                 <a href="#services" class="nav-link font-medium" data-section="services">services</a>
                 <a href="#works" class="nav-link font-medium" data-section="works">works</a>
-                <a href="#qna" class="nav-link font-medium" data-section="qna">Q&A</a>
+                <a href="#qna" class="nav-link font-medium" data-section="qna">q&a</a>
                 <a href="#contact" class="nav-link font-medium" data-section="contact">contact</a>
             </nav>
         </div>
@@ -189,11 +159,11 @@
                 </div>
                 <div class="md:col-span-2 text-lg space-y-6 font-light text-dark-gray">
                     <p>
-                        기후위기 시대를 살아가는 조경가로서 사회에 맡은 바 역할을 충실히 수행하는 신생 조경기술사사무소입니다.
+                        기후위기 시대를 살아가는 조경가로서 사회에 맡은 바 역할을 충실히 수행하는 신생 조경기술사사무소입니다.<br>
                         창립자는 다년간의 국내 최고의 엔지니어링 회사와 설계사무소 근무 경력을 자랑하며, 다양한 프로젝트 경험으로 국내 최고의 조경 디자인 스튜디오를 지향합니다.
                     </p>
                     <p>
-                        ESG 경영을 실천하여 미래지향형 가치를 추구합니다. 진정성 있는 접근으로 주어진 공간을 *조화, *행복, *이야기가 있는 장소로 만들고자 프로젝트에 최선을 다 하고 있습니다.
+                        ESG 경영을 실천하여 미래지향형 가치를 추구합니다.<br>진정성 있는 접근으로 주어진 공간space을 *조화, *행복, *이야기가 있는<br>장소place로 만들고자 프로젝트에 최선을 다 하고 있습니다.
                     </p>
                 </div>
             </div>
@@ -201,7 +171,7 @@
 
         <!-- 2. Mission Section -->
         <section id="mission" class="py-20 md:py-32 border-t border-stone-gray/20">
-            <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-12 text-center">화원의 Mission</h2>
+            <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-12 text-center">화원의 미션</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="mission-card bg-white p-8 shadow-sm">
                     <div class="text-4xl mb-4 text-peacock-green">하나,</div>
@@ -228,44 +198,34 @@
                 <p class="mt-6 text-lg text-dark-gray">'화원'의 모든 설계는 두 개의 근본적인 원리가 조화를 이룰 때 완성됩니다. 땅에 뿌리내린 조경가의 관점과 시대를 초월하는 디자인의 가치가 만나, 비로소 공간은 완전한 장소가 됩니다.</p>
             </div>
             
-            <div class="space-y-16">
+            <div class="space-y-20">
                 <!-- Principle 1 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="flex justify-center">
-                        <div class="diagram-container">
-                            <div class="triangle triangle-up"></div>
-                            <div class="value-node up-top font-serif">Line</div>
-                            <div class="value-node up-left font-serif">Mark</div>
-                            <div class="value-node up-right font-serif">Structure</div>
-                        </div>
+                    <div class="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/principle1.png" alt="조경가의 관점 이미지" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>Image for Principle 1</p>';">
                     </div>
                     <div class="bg-white p-8 shadow-sm">
                         <h3 class="font-serif text-2xl font-bold text-stone-gray mb-4">첫 번째 원리: 화원의 추구하는 디자인 가치(3D)</h3>
-                        <p class="text-dark-gray font-light">위를 향한 삼각형은 땅에 뿌리내린 조경가의 굳건한 의지이자, 모든 창조의 근간이 되는 **구조적 원리**를 상징합니다. 이는 공간의 질서를 잡는 **선(Line)**, 의미를 부여하는 **점(Mark)**, 그리고 모든 것을 담아내는 견고한 **구조(Structure)**로 이루어진 '화원'만의 고유한 설계 언어입니다.</p>
+                        <p class="text-dark-gray font-light">위를 향한 삼각형은 땅에 뿌리내린 조경가의 굳건한 의지이자, 모든 창조의 근간이 되는 *구조적 원리를 상징합니다. 이는 공간의 질서를 잡는 *선(Line), 의미를 부여하는 *점(Mark), 그리고 모든 것을 담아내는 견고한 *구조(Structure)로 이루어진 '화원'만의 고유한 설계 언어입니다.</p>
                     </div>
                 </div>
                 <!-- Principle 2 -->
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="bg-white p-8 shadow-sm md:order-last">
                         <h3 class="font-serif text-2xl font-bold text-peacock-green mb-4">두 번째 원리: 세가지 추구하는 가치(3HWA)</h3>
-                        <p class="text-dark-gray font-light">아래를 향한 삼각형은 하늘에서 내려오는 영감이자, 시대를 초월하는 **본질적 가치**를 상징합니다. 이는 사람과 자연을 잇는 조화(Harmony):和(화할화), 오감을 만족시키는 행복(Happiness):花(꽃화), 그리고 이야기(Story):話(말씀화)</p>
+                        <p class="text-dark-gray font-light">아래를 향한 삼각형은 하늘에서 내려오는 영감이자, 시대를 초월하는 *본질적 가치를 상징합니다. 이는 사람과 자연을 잇는 조화(Harmony):和(화할화), 오감을 만족시키는 행복(Happiness):花(꽃화), 그리고 이야기(Story):話(말씀화)</p>
                     </div>
-                    <div class="flex justify-center">
-                        <div class="diagram-container">
-                            <div class="triangle triangle-down"></div>
-                            <div class="value-node down-bottom font-eng">Harmony</div>
-                            <div class="value-node down-left font-eng">Happiness</div>
-                            <div class="value-node down-right font-eng">Heritage</div>
-                        </div>
+                    <div class="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/principle2.png" alt="디자인의 가치 이미지" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>Image for Principle 2</p>';">
                     </div>
                 </div>
             </div>
             
             <!-- Conclusion -->
             <div class="text-center max-w-3xl mx-auto mt-24">
-                <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png" alt="화원의 별 심벌" class="mx-auto h-24 w-24 mb-8">
+                <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png" alt="화원의 별 심벌" class="mx-auto h-48 w-auto mb-8">
                 <h3 class="font-serif text-3xl font-bold text-ink-black tracking-tight">화원의 별: 견고한 우아함</h3>
-                <p class="mt-6 text-lg text-dark-gray">두 삼각형이 만나 완성된 '화원의 별'은, 땅의 의지와 하늘의 본질이 서로를 비추고 엮이며 만들어내는 완벽한 합일을 의미합니다. 이 조화의 정점에서, '화원'이 추구하는 궁극의 디자인 미학인 **'견고한 우아함(A Robust Elegance)'**이 탄생합니다.</p>
+                <p class="mt-6 text-lg text-dark-gray">두 삼각형이 만나 완성된 '화원의 별'은, 땅의 의지와 하늘의 본질이 서로를 비추고 엮이며 만들어내는 완벽한 합일을 의미합니다. 이 조화의 정점에서, '화원'이 추구하는 궁극의 디자인 미학인 *'견고한 우아함(A Robust Elegance)'이 탄생합니다.</p>
             </div>
         </section>
 
@@ -287,36 +247,78 @@
 
         <!-- 5. Works Section -->
         <section id="works" class="py-20 md:py-32 border-t border-stone-gray/20">
-            <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-12">주요 프로젝트</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-12 text-center">주요 프로젝트</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 <!-- Project Card 1 -->
                 <div class="card group">
                     <div class="w-full overflow-hidden">
-                        <div class="card-img-container w-full aspect-[4/3] mb-4"></div>
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center">
+                             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work1.png" alt="금천구 백인백향기정원" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-400>Work 1</p>';">
+                        </div>
                     </div>
                     <div>
-                        <h3 class="card-title font-serif font-bold text-xl transition-colors">금천구 백인백향기정원</h3>
-                        <p class="text-gray-500 text-sm">2023, 정원</p>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors">남원시 만인공원</h3>
+                        <p class="text-gray-500 text-sm">2023, Park</p>
                     </div>
                 </div>
                 <!-- Project Card 2 -->
                 <div class="card group">
                      <div class="w-full overflow-hidden">
-                        <div class="card-img-container w-full aspect-[4/3] mb-4"></div>
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work2.png" alt="공주시 고마강 지방정원" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-400>Work 2</p>';">
+                        </div>
                     </div>
                     <div>
-                        <h3 class="card-title font-serif font-bold text-xl transition-colors">공주시 고마강 지방정원</h3>
-                        <p class="text-gray-500 text-sm">2024, 정원</p>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors">금천구 오미생태공원</h3>
+                        <p class="text-gray-500 text-sm">2024, Park</p>
                     </div>
                 </div>
                  <!-- Project Card 3 -->
                 <div class="card group">
                      <div class="w-full overflow-hidden">
-                        <div class="card-img-container w-full aspect-[4/3] mb-4"></div>
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work3.png" alt="서산시 숨결공원" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-400>Work 3</p>';">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors">공주시 고마강 지방정원</h3>
+                        <p class="text-gray-500 text-sm">2024, Garden</p>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="card group">
+                    <div class="w-full overflow-hidden">
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work4.png" alt="Project Four" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-400>Work 4</p>';">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors">용인포곡 공공지원민간임대주택</h3>
+                        <p class="text-gray-500 text-sm">2024, Park</p>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="card group">
+                    <div class="w-full overflow-hidden">
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work5.png" alt="Project Five" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-400>Work 5</p>';">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors">금천구 푸른골어린이공원</h3>
+                        <p class="text-gray-500 text-sm">2025, Park</p>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="card group">
+                    <div class="w-full overflow-hidden">
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work6.png" alt="Project Six" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-400>Work 6</p>';">
+                        </div>
                     </div>
                     <div>
                         <h3 class="card-title font-serif font-bold text-xl transition-colors">서산시 숨결공원</h3>
-                        <p class="text-gray-500 text-sm">2025, 공원</p>
+                        <p class="text-gray-500 text-sm">2025, Park</p>
                     </div>
                 </div>
             </div>
@@ -326,7 +328,7 @@
         <section id="qna" class="py-20 md:py-32 border-t border-stone-gray/20 bg-white -mx-6 px-6">
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-4">설계 문답(問答)</h2>
+                    <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-4">설계 문답(Q&A)</h2>
                     <p class="text-lg text-dark-gray">
                         조경에 대해 궁금한 점이 있으신가요? '화원의 별'을 바탕으로 AI가 당신의 질문에 답변해 드립니다.
                     </p>
@@ -349,18 +351,27 @@
 
         <!-- 7. Contact Section -->
         <section id="contact" class="py-20 md:py-32 border-t border-stone-gray/20">
-            <div class="text-center max-w-3xl mx-auto">
+            <div class="text-center max-w-4xl mx-auto">
                 <h2 class="font-serif text-4xl font-bold text-ink-black tracking-tight mb-4">연락처</h2>
                 <p class="text-lg text-dark-gray mb-12">당신의 공간이 품은 이야기가 궁금합니다.</p>
-                <div class="bg-white p-8 shadow-sm w-full">
-                    <div class="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center mb-8">
-                        <p class="text-gray-500">지도 위치</p>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-2">
+                        <div class="w-full aspect-square bg-gray-200 flex items-center justify-center">
+                             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/nameplate.png" alt="화원 조경기술사사무소 명판" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>명판 이미지</p>';">
+                        </div>
                     </div>
-                    <div class="space-y-4 text-center">
-                        <p><strong class="font-serif text-ink-black">T.</strong> <span class="font-eng">02.6177.7365</span> <strong class="font-serif text-ink-black ml-4">M.</strong> <span class="font-eng">010.8226.0413</span></p>
-                        <p><strong class="font-serif text-ink-black">E.</strong> <a href="mailto:jang@hwawon.pro" class="text-peacock-green hover:underline font-eng">jang@hwawon.pro</a></p>
-                        <p><strong class="font-serif text-ink-black">W.</strong> <a href="https://www.hwawon-associates.com" target="_blank" rel="noopener noreferrer" class="text-peacock-green hover:underline font-eng">www.hwawon-associates.com</a></p>
-                        <p><strong class="font-serif text-ink-black">A.</strong> 서울 금천구 가산디지털2로 135, 어반워크I A동 333호 (우)08504</p>
+                    <div class="md:col-span-3">
+                        <div class="bg-white p-8 shadow-sm w-full">
+                            <div class="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center mb-8">
+                                <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/location.png" alt="화원 조경기술사사무소 위치도" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>위치도</p>';">
+                            </div>
+                            <div class="space-y-4 text-left">
+                                <p><strong class="font-serif text-ink-black w-16 inline-block">T.</strong> <span class="font-eng">02.6177.7365</span></p>
+                                <p><strong class="font-serif text-ink-black w-16 inline-block">E.</strong> <a href="mailto:jang@hwawon.pro" class="text-peacock-green hover:underline font-eng">jang@hwawon.pro</a></p>
+                                <p><strong class="font-serif text-ink-black w-16 inline-block">W.</strong> <a href="https://www.hwawon-associates.com" target="_blank" rel="noopener noreferrer" class="text-peacock-green hover:underline font-eng">www.hwawon-associates.com</a></p>
+                                <p><strong class="font-serif text-ink-black w-16 inline-block">A.</strong> 서울 금천구 가산디지털2로 135, 어반워크I A동 333호 (우)08504</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,7 +380,7 @@
 
     <footer class="bg-ink-black text-parchment-white">
         <div class="container mx-auto px-6 py-10 text-center">
-             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwacenter.png" alt="화원 조경기술사사무소 로고" class="h-32 mx-auto footer-logo">
+             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwacenter.png" alt="화원 조경기술사사무소 로고" class="h-40 footer-logo">
             <p class="mt-4 text-xs text-gray-500">서울 금천구 가산디지털2로 135, 어반워크I A동 333호 (우)08504</p>
             <p class="font-eng mt-4 text-xs text-gray-500">&copy; 2025 Hwawon Associates. All rights reserved.</p>
         </div>
@@ -428,9 +439,9 @@
 
                     const prompt = `
                         당신은 '화원 조경기술사사무소'의 대표 기술사입니다.
-                        당신의 핵심 설계 철학은 '화원의 별(Trinity System)'입니다. 이는 두 개의 삼각형이 만나는 원리입니다:
+                        당신의 핵심 설계 철학은 '화원의 별'입니다. 이는 두 개의 삼각형이 만나는 원리입니다:
                         - 첫 번째 삼각형 (화원의 추구하는 디자인 가치): Line, Mark, Structure 라는 구조적 원리.
-                        - 두 번째 삼각형 (세가지 추구하는 가치(3HWA)): Harmony, Happiness, Story 라는 본질적 가치.
+                        - 두 번째 삼각형 (세가지 추구하는 가치): Harmony, Happiness, Heritage 라는 본질적 가치.
                         이 두 세계가 만나 '견고한 우아함'이라는 궁극의 미학을 완성한다고 당신은 믿습니다.
 
                         사용자 질문: "${topic}"
@@ -441,7 +452,7 @@
 
                         ### [질문에 대한 '화원'의 생각]
                         
-                        [답변 내용. 2-3 문단으로 구성. '조경가의 관점'과 '디자인의 가치'라는 두 원리를 자연스럽게 녹여낼 것.]
+                        [답변 내용. 2-3 문단으로 구성. '화원의 추구하는 디자인 가치'과 '세가지 추구하는 가치'라는 두 원리를 자연스럽게 녹여낼 것.]
                     `;
 
                     let resultText = await callGemini(prompt);
@@ -465,10 +476,7 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const header = document.getElementById('header');
             
-            let headerHeight = header.offsetHeight;
-            window.addEventListener('resize', () => {
-                headerHeight = header.offsetHeight;
-            });
+            let headerHeight = 160; // Approximate header height in pixels
 
             const observer = new IntersectionObserver((entries) => {
                 let visibleSectionId = '';
