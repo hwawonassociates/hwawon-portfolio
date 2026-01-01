@@ -363,7 +363,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- 1. Mobile Menu Logic ---
+            // --- 1. 모바일 메뉴 기능 ---
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-nav-link');
@@ -374,51 +374,49 @@
                 });
             }
 
-            // Close mobile menu when a link is clicked
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                 });
             });
 
-
-            // --- 2. Gemini API Logic ---
+            // --- 2. 화원 AI (Gemini) 로직 ---
+            // ★ 중요: 1.5-flash 모델 사용 (안정적)
             const API_BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=`;
-            // ⚠️ 중요: 아래 따옴표 안에 발급받은 API 키를 반드시 입력하세요!
-            const API_KEY = "AIzaSyB6c0AqJ02mvcsVnRojsOJ_G_OXlQ-q9jA"; 
+            
+            // ★ 중요: 여기에 방금 새로 받은 키를 넣어주세요 (따옴표 안에!)
+            const API_KEY = "AIzaSyD6QkWL6EDqvMErEcyP3z3NJi6UKdoLquk"; 
 
             async function callGemini(prompt) {
-                if(!API_KEY) {
-                    alert("API 키가 설정되지 않았습니다. 코드 내 API_KEY 변수를 확인해주세요.");
-                    return "시스템 설정 오류입니다. 관리자에게 문의해주세요.";
+                if(!API_KEY || API_KEY.startsWith("새로")) {
+                    alert("API 키가 설정되지 않았습니다. 코드를 수정해주세요.");
+                    return "시스템 설정 오류입니다.";
                 }
                 
                 const url = `${API_BASE_URL}${API_KEY}`;
                 const payload = {
                     contents: [{ role: "user", parts: [{ text: prompt }] }]
                 };
+                
                 try {
                     const response = await fetch(url, {
-                        method: 'POST',
+                        method: 'POST', // 여기서 데이터를 보냅니다 (그냥 주소창에 치면 안됨)
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
 
                     if (!response.ok) {
-                        throw new Error(`API Error: ${response.statusText}`);
+                        throw new Error(`통신 오류: ${response.status} ${response.statusText}`);
                     }
                     const result = await response.json();
-                    if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts[0]) {
-                        return result.candidates[0].content.parts[0].text;
-                    } else {
-                        throw new Error("Invalid API response structure.");
-                    }
+                    return result.candidates[0].content.parts[0].text;
                 } catch (error) {
-                    console.error("Gemini API call failed:", error);
-                    return "죄송합니다. 답변을 생성하는 데 실패했습니다. 잠시 후 다시 시도해 주세요.";
+                    console.error("AI 응답 실패:", error);
+                    return "죄송합니다. 현재 AI 서버와 연결이 원활하지 않습니다. 잠시 후 다시 시도해 주세요.";
                 }
             }
             
+            // --- Q&A 버튼 동작 설정 ---
             const qnaBtn = document.getElementById('qna-generator-btn');
             const qnaInput = document.getElementById('qna-input');
             const qnaLoading = document.getElementById('qna-loading');
@@ -432,83 +430,54 @@
                         return;
                     }
                     
+                    // 화면 상태 변경 (로딩중...)
                     qnaResults.classList.add('hidden');
                     qnaLoading.classList.remove('hidden');
                     qnaBtn.disabled = true;
                     qnaInput.disabled = true;
 
+                    // 화원의 별 페르소나 설정
                     const prompt = `
-                        당신은 '화원 조경기술사사무소'의 대표 기술사입니다.
-                        당신의 핵심 설계 철학은 '화원의 별'입니다. 이는 두 개의 삼각형이 만나는 원리입니다:
-                        - 첫 번째 삼각형 (조경가의 관점): Line, Mark, Structure 라는 구조적 원리.
-                        - 두 번째 삼각형 (디자인의 가치): 조화, 행복, 이야기 라는 본질적 가치.
-                        이 두 세계가 만나 '견고한 우아함'이라는 궁극의 미학을 완성한다고 당신은 믿습니다.
-                        그리고 '검이불루 화이불치'의 뜻을 따라 '검소하되 누추하지 않고, 화려하되 사치스럽지않다'라는 가치를 추구합니다.
+                        당신은 서울 금천구에 위치한 '화원 조경기술사사무소'의 대표 기술사입니다.
+                        당신의 설계 철학은 '화원의 별(The Star of Hwawon)'입니다.
+                        
+                        [철학 1: 3D] 조경가의 관점 - Line(선), Mark(점), Structure(구조)
+                        [철학 2: 3HWA] 디자인의 가치 - 조화(Harmony), 행복(Happiness), 이야기(Story)
+                        [핵심 가치] 검이불루 화이불치 (검소하되 누추하지 않고, 화려하되 사치스럽지 않다)
 
                         사용자 질문: "${topic}"
 
-                        위 질문에 대해 당신의 '화원의 별'과 '검이불루 화이불치'철학을 바탕으로 답변해주세요. 
-                        전문가로서 신뢰감 있고 정중한 어조(해요체)를 사용하세요.
-                        두 삼각형의 원리가 어떻게 상호작용하여 해답을 찾는지 설명해야 합니다.
-
-                        아래 형식을 반드시 지켜서 응답해주세요:
-
-                        ### [질문에 대한 '화원'의 생각]
-                        
-                        [답변 내용. 2-3 문단으로 구성. '조경가의 관점'과 '디자인의 가치'라는 두 원리와 '검이불루 화이불치'를 자연스럽게 녹여낼 것.]
+                        위 질문에 대해 전문가답게 정중한(해요체) 톤으로 답변해주세요.
+                        답변 형식:
+                        ### [전문가의 답변]
+                        (여기에 철학을 녹여낸 답변 작성)
                     `;
 
                     let resultText = await callGemini(prompt);
                     
+                    // 결과 꾸미기 (HTML 태그 변환)
                     resultText = resultText
                         .replace(/### (.*)/g, '<h3 class="font-serif text-xl font-bold text-peacock-green mb-4">$1</h3>')
-                        .replace(/\n\n/g, '<p class="mb-4"></p>')
                         .replace(/\n/g, '<br>')
-                        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink-black font-medium">$1</strong>'); // 볼드체 처리 추가
+                        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink-black font-medium">$1</strong>');
 
                     qnaResults.innerHTML = resultText;
                     
+                    // 화면 상태 복구
                     qnaLoading.classList.add('hidden');
                     qnaResults.classList.remove('hidden');
                     qnaBtn.disabled = false;
                     qnaInput.disabled = false;
                 });
 
-                 // Enter key trigger for Q&A
-                 qnaInput.addEventListener('keypress', function (e) {
-                    if (e.key === 'Enter') {
-                        qnaBtn.click();
-                    }
+                // 엔터키 입력 시 버튼 클릭 효과
+                qnaInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') qnaBtn.click();
                 });
             }
 
-            // --- 3. Active Nav Link on Scroll & Header Shadow ---
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
+            // --- 3. 스크롤 및 헤더 그림자 효과 ---
             const header = document.getElementById('header');
-            
-            let headerHeight = 100; 
-
-            const observer = new IntersectionObserver((entries) => {
-                let visibleSectionId = '';
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        visibleSectionId = entry.target.id;
-                    }
-                });
-
-                if(visibleSectionId) {
-                    navLinks.forEach(link => {
-                        link.classList.toggle('active-nav', link.getAttribute('href').substring(1) === visibleSectionId);
-                    });
-                }
-
-            }, { rootMargin: `-${headerHeight}px 0px -40% 0px`});
-
-            sections.forEach(section => {
-                if(section.id) observer.observe(section);
-            });
-
             function handleHeaderShadow() {
                 if (window.scrollY > 10) {
                     header.classList.add('shadow-sm');
@@ -516,8 +485,6 @@
                     header.classList.remove('shadow-sm');
                 }
             }
-
-            handleHeaderShadow();
             window.addEventListener('scroll', handleHeaderShadow);
         });
     </script>
