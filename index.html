@@ -382,10 +382,10 @@
 
             // --- 2. 화원 AI (Gemini) 로직 ---
             // ★ 중요: 1.5-flash 모델 사용 (안정적)
-            const API_BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=`;
+            const API_BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=`;
             
             // ★ 중요: 여기에 방금 새로 받은 키를 넣어주세요 (따옴표 안에!)
-            const API_KEY = "AIzaSyD6QkWL6EDqvMErEcyP3z3NJi6UKdoLquk"; 
+            const API_KEY = "AIzaSyCLFC0s5vvegmZoR-LB3TFI6F6u4IVPM_0"; 
 
             async function callGemini(prompt) {
                 if(!API_KEY || API_KEY.startsWith("새로")) {
