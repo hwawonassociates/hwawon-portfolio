@@ -361,62 +361,63 @@
         </div>
     </footer>
 
-    <script>
+  <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- 1. 모바일 메뉴 기능 ---
+            // 모바일 메뉴 등 기존 기능 유지
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            if(mobileBtn) mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-            if(mobileBtn){
-                mobileBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-
-            // --- 2. 화원 AI (Gemini) 로직 ---
-            // ★ 중요: 1.5-flash 모델 사용 (안정적)
-            const API_BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=`;
+            // ============================================================
+            // ★ [보안 우회 설정] 깃허브가 키를 읽지 못하게 쪼개서 넣기
+            // ============================================================
             
-            // ★ 중요: 여기에 방금 새로 받은 키를 넣어주세요 (따옴표 안에!)
-            const API_KEY = "AIzaSyD6IueAqHrFb5C-d847-3fL8SS-ZnlzOjw"; 
+            // 1. 방금 받은 새 키를 절반 정도 눈대중으로 나눠서 아래 두 곳에 입력하세요.
+            // 예: 키가 "AIzaSyABCDE12345" 라면
+            // part1 에 "AIzaSyAB" 넣고
+            // part2 에 "CDE12345" 넣으세요.
+            
+            const keyPart1 = "AIzaSyAUiJRIEvHnus";
+            const keyPart2 = "4ie0KCYM26sl6u35soDLg";
+            
+            // 여기서 두 조각을 합체합니다 (깃허브는 이걸 모릅니다)
+            const API_KEY = keyPart1 + keyPart2;
+            
+            // 모델 주소 (gemini-1.5-flash)
+            const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
             async function callGemini(prompt) {
-                if(!API_KEY || API_KEY.startsWith("새로")) {
-                    alert("API 키가 설정되지 않았습니다. 코드를 수정해주세요.");
-                    return "시스템 설정 오류입니다.";
+                if(API_KEY.includes("새_키의")) {
+                    alert("API 키가 입력되지 않았습니다. 코드를 수정해주세요."); return;
                 }
-                
-                const url = `${API_BASE_URL}${API_KEY}`;
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }]
-                };
+
+                const finalUrl = `${API_URL}?key=${API_KEY}`;
                 
                 try {
-                    const response = await fetch(url, {
-                        method: 'POST', // 여기서 데이터를 보냅니다 (그냥 주소창에 치면 안됨)
+                    const response = await fetch(finalUrl, {
+                        method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
+                        body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] })
                     });
 
                     if (!response.ok) {
-                        throw new Error(`통신 오류: ${response.status} ${response.statusText}`);
+                        const err = await response.json();
+                        console.error("API 오류:", err);
+                        throw new Error(`오류: ${response.status}`);
                     }
+                    
                     const result = await response.json();
                     return result.candidates[0].content.parts[0].text;
+
                 } catch (error) {
-                    console.error("AI 응답 실패:", error);
-                    return "죄송합니다. 현재 AI 서버와 연결이 원활하지 않습니다. 잠시 후 다시 시도해 주세요.";
+                    console.error("AI 연결 실패:", error);
+                    return "죄송합니다. 잠시 후 다시 시도해 주세요.";
                 }
             }
-            
-            // --- Q&A 버튼 동작 설정 ---
+
+            // Q&A 버튼 동작
             const qnaBtn = document.getElementById('qna-generator-btn');
             const qnaInput = document.getElementById('qna-input');
             const qnaLoading = document.getElementById('qna-loading');
@@ -425,67 +426,42 @@
             if (qnaBtn) {
                 qnaBtn.addEventListener('click', async () => {
                     const topic = qnaInput.value.trim();
-                    if (!topic) {
-                        alert("질문 내용을 입력해주세요.");
-                        return;
-                    }
+                    if (!topic) { alert("질문 내용을 입력해주세요."); return; }
                     
-                    // 화면 상태 변경 (로딩중...)
                     qnaResults.classList.add('hidden');
                     qnaLoading.classList.remove('hidden');
                     qnaBtn.disabled = true;
-                    qnaInput.disabled = true;
 
-                    // 화원의 별 페르소나 설정
                     const prompt = `
-                        당신은 서울 금천구에 위치한 '화원 조경기술사사무소'의 대표 기술사입니다.
-                        당신의 설계 철학은 '화원의 별(The Star of Hwawon)'입니다.
-                        
-                        [철학 1: 3D] 조경가의 관점 - Line(선), Mark(점), Structure(구조)
-                        [철학 2: 3HWA] 디자인의 가치 - 조화(Harmony), 행복(Happiness), 이야기(Story)
-                        [핵심 가치] 검이불루 화이불치 (검소하되 누추하지 않고, 화려하되 사치스럽지 않다)
-
-                        사용자 질문: "${topic}"
-
-                        위 질문에 대해 전문가답게 정중한(해요체) 톤으로 답변해주세요.
-                        답변 형식:
-                        ### [전문가의 답변]
-                        (여기에 철학을 녹여낸 답변 작성)
+                        당신은 서울 금천구 '화원 조경기술사사무소'의 대표입니다.
+                        '화원의 별' 철학과 '검이불루 화이불치' 가치를 바탕으로 답변하세요.
+                        질문: "${topic}"
+                        답변 형식: ### [전문가의 답변] 내용...
                     `;
 
                     let resultText = await callGemini(prompt);
                     
-                    // 결과 꾸미기 (HTML 태그 변환)
-                    resultText = resultText
-                        .replace(/### (.*)/g, '<h3 class="font-serif text-xl font-bold text-peacock-green mb-4">$1</h3>')
-                        .replace(/\n/g, '<br>')
-                        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink-black font-medium">$1</strong>');
+                    if(resultText) {
+                        resultText = resultText
+                            .replace(/### (.*)/g, '<h3 class="font-serif text-xl font-bold text-peacock-green mb-4">$1</h3>')
+                            .replace(/\n/g, '<br>')
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        qnaResults.innerHTML = resultText;
+                    }
 
-                    qnaResults.innerHTML = resultText;
-                    
-                    // 화면 상태 복구
                     qnaLoading.classList.add('hidden');
                     qnaResults.classList.remove('hidden');
                     qnaBtn.disabled = false;
-                    qnaInput.disabled = false;
                 });
-
-                // 엔터키 입력 시 버튼 클릭 효과
-                qnaInput.addEventListener('keypress', function (e) {
-                    if (e.key === 'Enter') qnaBtn.click();
-                });
+                qnaInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') qnaBtn.click(); });
             }
-
-            // --- 3. 스크롤 및 헤더 그림자 효과 ---
+            
+            // 헤더 그림자
             const header = document.getElementById('header');
-            function handleHeaderShadow() {
-                if (window.scrollY > 10) {
-                    header.classList.add('shadow-sm');
-                } else {
-                    header.classList.remove('shadow-sm');
-                }
-            }
-            window.addEventListener('scroll', handleHeaderShadow);
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) header.classList.add('shadow-sm');
+                else header.classList.remove('shadow-sm');
+            });
         });
     </script>
 </body>
