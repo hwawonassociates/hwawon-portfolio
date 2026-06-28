@@ -2,7 +2,7 @@
 <html lang="ko" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
-  
+
 <meta name="naver-site-verification" content="5e4cc2052c9eea57579e84fe99f1f3adc8f34a81" />
 
   <title>화원조경기술사사무소 - 서울 금천구 조경 설계 및 계획, 조경기술사</title>
@@ -11,29 +11,40 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="화원조경기술사사무소">
   <meta property="og:title" content="화원조경기술사사무소 - 서울 금천구 조경 전문가">
-  <meta property="og:description" content="서울 금천구 소재 조경기술사사무소. 조경 계획, 설계, 인허가 및 감리 전문. 자연과 사람을 잇는 최적의 공간 솔루션을 제공합니다.">
+  <meta property="og:description" content="서울 금천구 소재 조경기술사사무소. 공간을 장소로 만드는 어소시에이츠. 조경 계획, 설계, 인허가 및 감리 전문.">
   <meta property="og:image" content="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // 커스텀 색상 등록 (기존 소스는 config가 없어 색이 적용되지 않던 문제 수정)
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'peacock-green': '#0A4F44',  // 기존 색상 유지
+              'ink-black':     '#2C2C2C',
+              'stone-gray':    '#555555',
+              'parchment-white':'#FBFBF6',
+              'dark-gray':     '#555555',
+            }
+          }
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
-            --peacock-green: #0A4F44; 
+            --peacock-green: #0A4F44;
             --ink-black: #2C2C2C;
             --stone-gray: #555555;
             --parchment-white: #FBFBF6;
             --dark-gray: #555555;
         }
-        html {
-            scroll-padding-top: 100px; /* 모바일 헤더 높이 고려 */
-        }
-        @media (min-width: 768px) {
-            html {
-                scroll-padding-top: 180px; /* PC 헤더 높이 고려 */
-            }
-        }
+        html { scroll-padding-top: 100px; }
+        @media (min-width: 768px) { html { scroll-padding-top: 180px; } }
         body {
             font-family: 'Noto Sans KR', sans-serif;
             background-color: var(--parchment-white);
@@ -41,54 +52,31 @@
         }
         .font-serif { font-family: 'Nanum Myeongjo', serif; }
         .font-eng { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .nav-link {
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: var(--peacock-green);
-        }
-        .active-nav {
-            color: var(--peacock-green);
-            font-weight: 700;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--peacock-green); }
+        .active-nav { color: var(--peacock-green); font-weight: 700; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0,0,0,.1);
-            border-radius: 50%;
-            border-top-color: var(--peacock-green);
-            animation: spin 1s ease-in-out infinite;
+            display: inline-block; width: 20px; height: 20px;
+            border: 3px solid rgba(0,0,0,.1); border-radius: 50%;
+            border-top-color: var(--peacock-green); animation: spin 1s ease-in-out infinite;
         }
-        .header-blur {
-            -webkit-backdrop-filter: blur(4px);
-            backdrop-filter: blur(4px);
-        }
-        .card-img-container {
-            background-color: #EAEADE;
-            transition: transform 0.4s ease;
-        }
-        .card:hover .card-img-container {
-            transform: scale(1.05);
-        }
-        .card:hover .card-title {
-            color: var(--peacock-green);
-        }
-        .footer-logo {
-            filter: invert(1) brightness(1.5);
-        }
-        /* 모바일 메뉴 애니메이션 */
-        #mobile-menu {
-            transform-origin: top;
-            animation: slideDown 0.3s ease-out forwards;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: scaleY(0); }
-            to { opacity: 1; transform: scaleY(1); }
-        }
+        .header-blur { -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+        .card-img-container { background-color: #EAEADE; transition: transform 0.4s ease; }
+        .card:hover .card-img-container { transform: scale(1.05); }
+        .card:hover .card-title { color: var(--peacock-green); }
+        .footer-logo { filter: invert(1) brightness(1.5); }
+        #mobile-menu { transform-origin: top; animation: slideDown 0.3s ease-out forwards; }
+        @keyframes slideDown { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: scaleY(1); } }
+
+        /* 화원의 별 로고 — 은은한 등장 */
+        @keyframes starRise { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
+        .star-logo { animation: starRise 1s ease-out both; }
+
+        /* 전문분야 번호 나열 */
+        .type-item { transition: color .3s ease; }
+        .type-item:hover .type-ko { color: var(--peacock-green); }
+        .type-num { font-family: 'Nanum Myeongjo', serif; }
     </style>
 </head>
 <body class="bg-parchment-white">
@@ -96,12 +84,12 @@
     <header id="header" class="bg-parchment-white/90 sticky top-0 z-50 transition-all duration-300 header-blur border-b border-transparent">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#hero" class="group">
-                <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwaleft.png" alt="화원 조경기술사사무소 로고" class="h-12 md:h-20 lg:h-40 object-contain transition-all duration-300">
+                <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwaleft.png" alt="화원 조경기술사사무소 로고" class="h-12 md:h-20 lg:h-40 object-contain transition-all duration-300" onerror="this.outerHTML='<span class=&quot;font-serif font-bold text-2xl md:text-3xl text-peacock-green&quot;>화원</span>';">
             </a>
-            
+
             <nav class="hidden md:flex space-x-8">
                 <a href="#about" class="nav-link font-medium" data-section="about">about</a>
-                <a href="#mission" class="nav-link font-medium" data-section="mission">mission</a>
+                <a href="#mission" class="nav-link font-medium" data-section="mission">values</a>
                 <a href="#philosophy" class="nav-link font-medium" data-section="philosophy">philosophy</a>
                 <a href="#services" class="nav-link font-medium" data-section="services">services</a>
                 <a href="#works" class="nav-link font-medium" data-section="works">works</a>
@@ -119,7 +107,7 @@
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-parchment-white/95 backdrop-blur-md border-b border-stone-gray/20 shadow-lg">
             <div class="flex flex-col items-center py-6 space-y-6">
                 <a href="#about" class="mobile-nav-link text-lg font-medium text-dark-gray hover:text-peacock-green">about</a>
-                <a href="#mission" class="mobile-nav-link text-lg font-medium text-dark-gray hover:text-peacock-green">mission</a>
+                <a href="#mission" class="mobile-nav-link text-lg font-medium text-dark-gray hover:text-peacock-green">values</a>
                 <a href="#philosophy" class="mobile-nav-link text-lg font-medium text-dark-gray hover:text-peacock-green">philosophy</a>
                 <a href="#services" class="mobile-nav-link text-lg font-medium text-dark-gray hover:text-peacock-green">services</a>
                 <a href="#works" class="mobile-nav-link text-lg font-medium text-dark-gray hover:text-peacock-green">works</a>
@@ -129,112 +117,245 @@
         </div>
     </header>
 
+    <!-- ===== HERO ===== -->
     <section id="hero" class="min-h-[90vh] flex items-center bg-parchment-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl">
-                <h1 class="font-serif text-5xl md:text-8xl font-bold text-ink-black leading-tight">
-                    화원
-                </h1>
+                <h1 class="font-serif text-5xl md:text-8xl font-bold text-ink-black leading-tight">화원</h1>
                 <p class="mt-2 text-xl md:text-3xl font-serif text-dark-gray">조경기술사사무소</p>
-                <p class="font-eng mt-4 text-lg md:text-2xl text-dark-gray tracking-tight">Hwawon Associates</p>
-                <p class="mt-8 text-lg md:text-2xl font-light text-dark-gray max-w-2xl leading-relaxed">
-                    '화원'은 단순한 꽃밭(花園)이 아니라, 모든 것이 어우러지는 조화로운 동산(和園)이자, 삶의 이야기가 깃드는 이야기 동산(話園)이라는 깊은 의미를 갖고 있습니다.
+                <p class="font-eng mt-4 text-lg md:text-2xl text-peacock-green tracking-tight font-bold">HWAWON Associates</p>
+                <p class="mt-8 text-lg md:text-2xl font-serif text-ink-black">공간을 장소로 만드는 어소시에이츠</p>
+                <p class="mt-4 text-base md:text-lg text-peacock-green font-serif">
+                    꽃의 정원 · 어울림의 뜰 · 이야기의 정원 <span class="text-sm text-stone-gray ml-1">花苑 · 和園 · 話園</span>
+                </p>
+                <p class="mt-8 text-lg md:text-xl font-light text-dark-gray max-w-2xl leading-relaxed">
+                    화원은 빈터에 의미를 새겨, 공간(space)을 장소(place)로 거듭나게 합니다.
                 </p>
             </div>
         </div>
     </section>
 
     <main class="container mx-auto px-6">
+
+        <!-- ===== ABOUT ===== -->
         <section id="about" class="py-20 md:py-32">
              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 <div class="md:col-span-1">
                     <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">화원 소개</h2>
-                    <p class="font-eng text-peacock-green mt-2">Vision & Mind</p>
+                    <p class="font-eng text-peacock-green mt-2">About HWAWON</p>
                 </div>
                 <div class="md:col-span-2 text-lg space-y-6 font-light text-dark-gray leading-relaxed">
                     <p>
-                        기후위기 시대를 살아가는 조경가로서 사회에 맡은 바 역할을 충실히 수행하는 신생 조경기술사사무소입니다.
-                        창립자는 다년간의 국내 최고의 엔지니어링 회사와 설계사무소 근무 경력을 자랑하며, 다양한 프로젝트 경험으로 국내 최고의 조경 디자인 스튜디오를 지향합니다.
+                        화원은 조경을 중심으로 도시·토목·생태·건축의 전문가가 모여, 하나의 장소를 함께 짓는 협업 조직(Associates)입니다.
+                        각 분야의 전문성이 대등하게 만나 한 장의 설계로 수렴할 때, 비로소 공간은 장소가 됩니다.
                     </p>
                     <p>
-                        ESG 경영을 실천하여 미래지향형 가치를 추구합니다. 진정성 있는 접근으로 주어진 공간을 <strong class="font-medium text-ink-black">조화, 행복, 이야기가 있는 장소</strong>로 만들고자 프로젝트에 최선을 다하고 있습니다.
+                        기후위기 시대를 살아가는 조경가로서 사회에 맡은 바 역할을 충실히 수행합니다. 창립자는 국내 최고의 엔지니어링 회사와 설계사무소에서 쌓은 다년간의 경력을 바탕으로, 진정성 있는 접근으로 주어진 공간을 <strong class="font-medium text-ink-black">조화·행복·이야기가 있는 장소</strong>로 만들고자 합니다.
                     </p>
                 </div>
             </div>
         </section>
 
+        <!-- ===== MISSION · 설계 가치 (Communitas / Memoria / Genius Loci) ===== -->
         <section id="mission" class="py-20 md:py-32 border-t border-stone-gray/20">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-12 text-center">화원의 미션</h2>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">설계 가치</h2>
+                <p class="font-eng text-peacock-green mt-2">Our Values</p>
+                <p class="mt-6 text-lg text-dark-gray">화원이 모든 설계의 바탕으로 삼는 세 가지 가치입니다. 사람을 향하고, 시간을 잇고, 장소의 혼을 담습니다.</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-4xl mb-4 text-peacock-green">하나,</div>
-                    <h3 class="font-serif font-bold text-xl mb-2 text-ink-black">지속 가능한 조경 솔루션 개발</h3>
-                    <p class="text-dark-gray font-light">기후 변화에 대응하고, 자연과 인간이 조화롭게 공존할 수 있는 공간을 창조하는 것을 목표로 합니다.</p>
+                <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow border-t-2 border-peacock-green">
+                    <p class="font-eng text-peacock-green text-sm tracking-widest uppercase">Communitas</p>
+                    <h3 class="font-serif font-bold text-xl mt-2 mb-3 text-ink-black">모두를 위한 설계</h3>
+                    <p class="text-dark-gray font-light">나이와 신체, 배경에 관계없이 누구나 동등하게 누리는 공간. 무장애(BF)와 유니버설 디자인을 넘어, 함께 어울려 살아가는 공동체의 터를 짓습니다.</p>
                 </div>
-                <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-4xl mb-4 text-peacock-green">둘,</div>
-                    <h3 class="font-serif font-bold text-xl mb-2 text-ink-black">첨단 기술을 활용한 혁신적 조경 설계</h3>
-                    <p class="text-dark-gray font-light">AI와 같은 첨단 기술을 활용하여 조경 설계 과정을 혁신하고, 개인화된 설계 솔루션을 제공합니다.</p>
+                <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow border-t-2 border-peacock-green">
+                    <p class="font-eng text-peacock-green text-sm tracking-widest uppercase">Memoria</p>
+                    <h3 class="font-serif font-bold text-xl mt-2 mb-3 text-ink-black">시간을 잇는 설계</h3>
+                    <p class="text-dark-gray font-light">땅에 새겨진 역사와 전통의 기억을 오늘로 잇습니다. 한국 전통정원의 깊이를 현대의 언어로 되살려, 사라지지 않는 장소를 만듭니다.</p>
                 </div>
-                <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-4xl mb-4 text-peacock-green">셋,</div>
-                    <h3 class="font-serif font-bold text-xl mb-2 text-ink-black">사회적 가치와 인간 중심의 문화 조성</h3>
-                    <p class="text-dark-gray font-light">커뮤니티의 복지 향상, 심리적 안정감 제공, 사회적 소속감 증진을 목표로 합니다.</p>
+                <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow border-t-2 border-peacock-green">
+                    <p class="font-eng text-peacock-green text-sm tracking-widest uppercase">Genius Loci</p>
+                    <h3 class="font-serif font-bold text-xl mt-2 mb-3 text-ink-black">장소의 혼을 담는 설계</h3>
+                    <p class="text-dark-gray font-light">어디에나 있는 공간이 아니라, 그곳에만 있는 장소를 짓습니다. 대상지 고유의 지형과 빛과 이야기를 읽어, 빈터를 장소성(場所性)으로 채웁니다.</p>
                 </div>
             </div>
         </section>
 
+        <!-- ===== PHILOSOPHY · 화원의 별 ===== -->
         <section id="philosophy" class="py-20 md:py-32 border-t border-stone-gray/20">
              <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">화원의 별</h2>
-                <p class="mt-6 text-lg text-dark-gray">'화원'의 모든 설계는 두 개의 근본적인 원리가 조화를 이룰 때 완성됩니다. 땅에 뿌리내린 조경가의 관점과 시대를 초월하는 디자인의 가치가 만나, 비로소 공간은 완전한 장소가 됩니다.</p>
+                <p class="font-eng text-peacock-green mt-2">The Star of HWAWON</p>
+                <p class="mt-6 text-lg text-dark-gray">
+                    화원의 별은 두 개의 삼각형이 만나 완성됩니다. 형태·기능·감각이라는 <strong class="font-medium text-ink-black">디자인 가치(▲)</strong>와, 꽃·어울림·이야기라는 <strong class="font-medium text-ink-black">화원의 정체성(▽)</strong>이 포개져 하나의 별을 이루고, 그 중심에서 공간은 비로소 장소가 됩니다.
+                </p>
             </div>
-            
-            <div class="space-y-20">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/principle1.png" alt="조경가의 관점 이미지" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.parentElement.innerHTML = '<div class=\'flex flex-col items-center justify-center text-gray-400 h-full w-full p-4 bg-gray-100 text-center\'><span class=\'font-serif font-bold text-2xl\'>3D</span><span class=\'text-sm\'>Line • Mark • Structure</span></div>';">
-                    </div>
-                    <div class="bg-white p-8 shadow-sm">
-                        <h3 class="font-serif text-2xl font-bold text-stone-gray mb-4">화원이 추구하는 디자인 가치(3D)</h3>
-                        <p class="text-dark-gray font-light leading-relaxed">위를 향한 삼각형은 땅에 뿌리내린 조경가의 굳건한 의지이자, 모든 창조의 근간이 되는 <strong class="font-medium text-ink-black">구조적 원리</strong>를 상징합니다. 이는 공간의 질서를 잡는 <strong class="font-medium text-ink-black">선(Line)</strong>, 의미를 부여하는 <strong class="font-medium text-ink-black">점(Mark)</strong>, 그리고 모든 것을 담아내는 견고한 <strong class="font-medium text-ink-black">구조(Structure)</strong>로 이루어진 '화원'만의 고유한 설계 언어입니다.</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="bg-white p-8 shadow-sm md:order-last">
-                        <h3 class="font-serif text-2xl font-bold text-peacock-green mb-4">화원이 추구하는 본질적 가치(3HWA)</h3>
-                        <p class="text-dark-gray font-light leading-relaxed">아래를 향한 삼각형은 하늘에서 내려오는 영감이자, 시대를 초월하는 <strong class="font-medium text-ink-black">본질적 가치</strong>를 상징합니다. 이는 사람과 자연을 잇는 <strong class="font-medium text-ink-black">조화(Harmony):和(화할화)</strong>, 오감을 만족시키는 <strong class="font-medium text-ink-black">행복(Happiness):花(꽃화)</strong>, 그리고 시간을 초월하는 <strong class="font-medium text-ink-black">이야기(Story)話(말씀화)</strong>라는 가치입니다.</p>
-                    </div>
-                    <div class="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center overflow-hidden">
-                        <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/principle2.png" alt="디자인의 가치 이미지" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.parentElement.innerHTML = '<div class=\'flex flex-col items-center justify-center text-gray-400 h-full w-full p-4 bg-gray-100 text-center\'><span class=\'font-serif font-bold text-2xl text-peacock-green\'>3HWA</span><span class=\'text-sm\'>Harmony • Happiness • Story</span></div>';">
-                    </div>
+
+            <!-- 화원의 별 로고 (크게) -->
+            <div class="flex justify-center mb-20">
+                <div class="w-full max-w-md aspect-square flex items-center justify-center p-6">
+                    <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png"
+                         alt="화원의 별 심벌"
+                         class="star-logo w-full h-full object-contain"
+                         onerror="this.onerror=null;this.replaceWith(document.getElementById('star-fallback').content.cloneNode(true));">
+                    <template id="star-fallback"><div class="w-full h-full border-2 border-dashed border-stone-gray/30 flex flex-col items-center justify-center text-stone-gray/60 gap-2"><span class="font-serif text-lg">화원의 별 로고</span><span class="font-eng text-xs">hwalogo.png</span></div></template>
                 </div>
             </div>
-            
-            <div class="text-center max-w-3xl mx-auto mt-24">
-                <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png" alt="화원의 별 심벌" class="mx-auto h-32 md:h-48 w-auto mb-8 object-contain">
-                <h3 class="font-serif text-3xl font-bold text-ink-black tracking-tight">화원의 별: 견고한 우아함</h3>
-                <p class="mt-6 text-lg text-dark-gray">두 삼각형이 만나 완성된 '화원의 별'은, 땅의 의지와 하늘의 본질이 서로를 비추고 엮이며 만들어내는 완벽한 합일을 의미합니다. 이 조화의 정점에서, '화원'이 추구하는 궁극의 디자인 미학인 <strong class="font-medium text-ink-black">'견고한 우아함(A Robust Elegance)'</strong>이 탄생합니다.</p>
+
+            <!-- 두 삼각형 설명 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+                <!-- ▲ 디자인 가치 -->
+                <div class="bg-white p-8 shadow-sm">
+                    <div class="flex items-baseline gap-3 mb-1">
+                        <h3 class="font-serif text-2xl font-bold text-peacock-green">▲ 디자인 가치</h3>
+                        <span class="font-eng text-sm text-stone-gray">Form · Function · Sense</span>
+                    </div>
+                    <p class="text-sm text-stone-gray font-light mb-6">설계할 때 가장 먼저 고려하는 세 가지 기본 요소입니다.</p>
+                    <div class="space-y-5">
+                        <div>
+                            <p class="font-serif font-bold text-lg text-ink-black">형태 <span class="font-eng text-peacock-green text-base ml-1">Form</span></p>
+                            <p class="text-dark-gray font-light mt-1">땅의 질서를 세우고 비례와 구조를 빚는 조형의 언어. 공간의 골격을 만듭니다.</p>
+                        </div>
+                        <div>
+                            <p class="font-serif font-bold text-lg text-ink-black">기능 <span class="font-eng text-peacock-green text-base ml-1">Function</span></p>
+                            <p class="text-dark-gray font-light mt-1">쓰임과 동선, 안전과 효율을 살피는 합리의 언어. 공간을 살아 움직이게 합니다.</p>
+                        </div>
+                        <div>
+                            <p class="font-serif font-bold text-lg text-ink-black">감각 <span class="font-eng text-peacock-green text-base ml-1">Sense</span></p>
+                            <p class="text-dark-gray font-light mt-1">빛과 바람, 소리와 계절을 깨우는 오감의 언어. 머무는 이의 마음을 움직입니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ▽ 화원의 정체성 -->
+                <div class="bg-white p-8 shadow-sm">
+                    <div class="flex items-baseline gap-3 mb-1">
+                        <h3 class="font-serif text-2xl font-bold text-peacock-green">▽ 화원의 정체성</h3>
+                        <span class="font-eng text-sm text-stone-gray">花苑 · 和園 · 話園</span>
+                    </div>
+                    <p class="text-sm text-stone-gray font-light mb-6">화원이라는 이름에 담긴 세 겹의 뜻입니다.</p>
+                    <div class="space-y-5">
+                        <div>
+                            <p class="font-serif font-bold text-lg text-ink-black"><span class="text-peacock-green">花苑</span> 꽃의 정원</p>
+                            <p class="text-dark-gray font-light mt-1">흙을 일구어 아름다움을 피우는 마음. 가장 사적인 정원에서 출발한, 화원의 뿌리.</p>
+                        </div>
+                        <div>
+                            <p class="font-serif font-bold text-lg text-ink-black"><span class="text-peacock-green">和園</span> 어울림의 뜰</p>
+                            <p class="text-dark-gray font-light mt-1">사람과 자연이, 전문가와 전문가가 대등하게 어우러지는 조화의 터.</p>
+                        </div>
+                        <div>
+                            <p class="font-serif font-bold text-lg text-ink-black"><span class="text-peacock-green">話園</span> 이야기의 정원</p>
+                            <p class="text-dark-gray font-light mt-1">땅에 깃든 시간과 서사를 읽어, 장소에 이야기를 새기는 손.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 별의 합일 -->
+            <div class="text-center max-w-3xl mx-auto mt-20">
+                <h3 class="font-serif text-3xl font-bold text-ink-black tracking-tight">화원의 별 : 견고한 우아함</h3>
+                <p class="mt-6 text-lg text-dark-gray">
+                    두 삼각형이 만나 완성된 화원의 별은, 디자인 가치와 화원의 정체성이 서로를 비추고 엮이며 만들어내는 완벽한 합일을 의미합니다. 그 조화의 정점에서, 화원이 추구하는 궁극의 미학 <strong class="font-medium text-ink-black">견고한 우아함(A Robust Elegance)</strong>이 탄생합니다.
+                </p>
             </div>
         </section>
 
+        <!-- ===== SERVICES · 전문분야 (6유형 번호 나열) ===== -->
         <section id="services" class="py-20 md:py-32 border-t border-stone-gray/20">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-12 text-center">전문분야</h2>
-            <div class="max-w-5xl mx-auto text-center">
-                 <p class="text-lg text-dark-gray mb-10 leading-relaxed">화원에서는 개인의 정원에서부터 도시의 기반 시설에 이르기까지, 다양한 스케일과 유형의 프로젝트를 현상설계부터 실시설계, 특화 설계까지 단계별 체계적인 과정으로 수행하고 있습니다.</p>
-                 <div class="flex justify-center gap-3 flex-wrap font-eng">
-                    <span class="bg-peacock-green/10 text-peacock-green font-medium px-4 py-2 rounded-full">Garden</span>
-                    <span class="bg-peacock-green/10 text-peacock-green font-medium px-4 py-2 rounded-full">Park</span>
-                    <span class="bg-peacock-green/10 text-peacock-green font-medium px-4 py-2 rounded-full">Urban Design</span>
-                    <span class="bg-peacock-green/10 text-peacock-green font-medium px-4 py-2 rounded-full">Planning</span>
-                    <span class="bg-peacock-green/10 text-peacock-green font-medium px-4 py-2 rounded-full">Leisure & Resort</span>
-                    <span class="bg-peacock-green/10 text-peacock-green font-medium px-4 py-2 rounded-full">Infrastructure</span>
-                 </div>
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">전문분야</h2>
+                <p class="font-eng text-peacock-green mt-2">Where We Work</p>
+                <p class="mt-6 text-lg text-dark-gray">가장 사적인 정원에서 도시를 잇는 녹지축까지, 규모와 성격이 다른 여섯 유형의 외부공간을 다룹니다.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-gray/15 max-w-5xl mx-auto border border-stone-gray/15">
+                <!-- 1 정원 -->
+                <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
+                    <div class="text-peacock-green mb-5">
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M24 46 L40 46 L37 57 L27 57 Z"/><path d="M32 46 L32 28"/>
+                            <path d="M32 38 C 24 36 20 28 20 22 C 28 24 31 30 32 38"/>
+                            <path d="M32 34 C 40 32 44 24 44 18 C 36 20 33 26 32 34"/>
+                        </svg>
+                    </div>
+                    <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">01</p>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">정원</h3>
+                    <p class="font-eng text-sm text-peacock-green">Garden</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">가장 사적이고 섬세한 외부공간</p>
+                </div>
+                <!-- 2 놀이터 -->
+                <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
+                    <div class="text-peacock-green mb-5">
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 50 L48 50"/><path d="M19 48 L35 26"/><path d="M19 48 Q15 52 20 51"/>
+                            <path d="M35 26 L44 26"/><path d="M44 26 L44 50"/><path d="M39 34 L44 34 M39 42 L44 42"/>
+                        </svg>
+                    </div>
+                    <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">02</p>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">놀이터</h3>
+                    <p class="font-eng text-sm text-peacock-green">Playground</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">누구도 배제되지 않는 통합놀이터</p>
+                </div>
+                <!-- 3 공원 -->
+                <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
+                    <div class="text-peacock-green mb-5">
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="32" cy="24" r="13"/><path d="M32 37 L32 54"/>
+                            <path d="M32 46 L25 40 M32 44 L39 38"/><path d="M24 54 L40 54"/>
+                        </svg>
+                    </div>
+                    <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">03</p>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">공원</h3>
+                    <p class="font-eng text-sm text-peacock-green">Park</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">일상에서 누리는 공공 녹지</p>
+                </div>
+                <!-- 4 단지 -->
+                <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
+                    <div class="text-peacock-green mb-5">
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 54 L48 54"/><rect x="18" y="28" width="13" height="26"/><rect x="33" y="18" width="14" height="36"/>
+                            <path d="M22 34 H27 M22 40 H27 M22 46 H27"/><path d="M37 24 H43 M37 31 H43 M37 38 H43 M37 45 H43"/>
+                        </svg>
+                    </div>
+                    <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">04</p>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">단지</h3>
+                    <p class="font-eng text-sm text-peacock-green">Complex</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">주거·업무·산업단지의 외부공간</p>
+                </div>
+                <!-- 5 리조트 -->
+                <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
+                    <div class="text-peacock-green mb-5">
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="32" cy="22" r="8"/>
+                            <path d="M32 8 V12 M32 32 V36 M18 22 H22 M42 22 H46 M22 12 L25 15 M42 12 L39 15 M22 32 L25 29 M42 32 L39 29"/>
+                            <path d="M16 46 q5 -4 9 0 t9 0 t9 0"/><path d="M16 52 q5 -4 9 0 t9 0 t9 0"/>
+                        </svg>
+                    </div>
+                    <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">05</p>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">리조트</h3>
+                    <p class="font-eng text-sm text-peacock-green">Resort</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">머무는 시간을 설계하는 휴양 경관</p>
+                </div>
+                <!-- 6 수변·녹지축 -->
+                <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
+                    <div class="text-peacock-green mb-5">
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 24 q6 -5 11 0 t11 0 t11 0"/><path d="M14 34 q6 -5 11 0 t11 0 t11 0"/><path d="M14 44 q6 -5 11 0 t11 0 t11 0"/>
+                        </svg>
+                    </div>
+                    <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">06</p>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">수변 · 녹지축</h3>
+                    <p class="font-eng text-sm text-peacock-green">Waterfront · Greenway</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">물길과 녹지로 도시를 잇는 기반</p>
+                </div>
             </div>
         </section>
 
+        <!-- ===== WORKS · 주요 프로젝트 (구조 유지 — 추후 이미지/텍스트 교체) ===== -->
         <section id="works" class="py-20 md:py-32 border-t border-stone-gray/20">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-12 text-center">주요 프로젝트</h2>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">주요 프로젝트</h2>
+                <p class="font-eng text-peacock-green mt-2">Selected Works</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 <div class="card group cursor-pointer">
                     <div class="w-full overflow-hidden rounded-sm">
@@ -244,7 +365,7 @@
                     </div>
                     <div>
                         <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">남원시 만인공원</h3>
-                        <p class="text-gray-500 text-sm mt-1">2023, Park</p>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2023, Park</p>
                     </div>
                 </div>
                 <div class="card group cursor-pointer">
@@ -255,7 +376,7 @@
                     </div>
                     <div>
                         <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">금천구 오미생태공원</h3>
-                        <p class="text-gray-500 text-sm mt-1">2024, Park</p>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2024, Park</p>
                     </div>
                 </div>
                  <div class="card group cursor-pointer">
@@ -266,7 +387,7 @@
                     </div>
                     <div>
                         <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">공주시 고마강 지방정원</h3>
-                        <p class="text-gray-500 text-sm mt-1">2024, Garden</p>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2024, Garden</p>
                     </div>
                 </div>
                 <div class="card group cursor-pointer">
@@ -277,7 +398,7 @@
                     </div>
                     <div>
                         <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">용인포곡 공공지원민간임대주택</h3>
-                        <p class="text-gray-500 text-sm mt-1">2025, Park</p>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2025, Complex</p>
                     </div>
                 </div>
                 <div class="card group cursor-pointer">
@@ -288,30 +409,29 @@
                     </div>
                     <div>
                         <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">영종 진아레히 공동주택 조경특화설계</h3>
-                        <p class="text-gray-500 text-sm mt-1">2025, Apartment</p>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2025, Complex</p>
                     </div>
                 </div>
                 <div class="card group cursor-pointer">
                     <div class="w-full overflow-hidden rounded-sm">
                         <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work6.png" alt="인천계양 테크노벨리 공공주택지 문화공원 4,5호 특화계획" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image Preparing</div>';">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work6.png" alt="인천계양 테크노밸리 문화공원 4,5호 특화계획" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image Preparing</div>';">
                         </div>
                     </div>
                     <div>
-                        <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">인천계양 테크노벨리 공공주택지 문화공원 4,5호 특화계획</h3>
-                        <p class="text-gray-500 text-sm mt-1">2025, Park</p>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">인천계양 테크노밸리 문화공원 4,5호 특화계획</h3>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2025, Park</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== Q&A (유지) ===== -->
         <section id="qna" class="py-20 md:py-32 border-t border-stone-gray/20 bg-white -mx-6 px-6">
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-4">설계 문답(Q&A)</h2>
-                    <p class="text-lg text-dark-gray">
-                        조경에 대해 궁금한 점이 있으신가요? '화원의 별'을 바탕으로 AI가 당신의 질문에 답변해 드립니다.
-                    </p>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-4">설계 문답 (Q&A)</h2>
+                    <p class="text-lg text-dark-gray">조경에 대해 궁금한 점이 있으신가요? 화원의 별을 바탕으로 AI가 당신의 질문에 답변해 드립니다.</p>
                 </div>
                 <div class="max-w-2xl mx-auto">
                     <div class="flex flex-col md:flex-row gap-2">
@@ -329,6 +449,7 @@
             </div>
         </section>
 
+        <!-- ===== CONTACT (유지) ===== -->
         <section id="contact" class="py-20 md:py-32 border-t border-stone-gray/20">
             <div class="text-center max-w-4xl mx-auto">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-4">연락처</h2>
@@ -345,7 +466,7 @@
                     <div class="space-y-4 text-left md:text-center">
                         <p><strong class="font-serif text-ink-black">전화:</strong> <span class="font-eng">02.6177.7365</span></p>
                         <p><strong class="font-serif text-ink-black">이메일:</strong> <a href="mailto:hello@hwawon.pro" class="text-peacock-green hover:underline font-eng">hello@hwawon.pro</a></p>
-                        <p><strong class="font-serif text-ink-black">웹사이트:</strong> <a href="https://hwawon.pro" target="_blank" rel="noopener noreferrer" class="text-peacock-green hover:underline font-eng">hwawon.pro</a></p>
+                        <p><strong class="font-serif text-ink-black">웹사이트:</strong> <a href="https://www.hwawon.pro" target="_blank" rel="noopener noreferrer" class="text-peacock-green hover:underline font-eng">www.hwawon.pro</a></p>
                         <p><strong class="font-serif text-ink-black">주소:</strong> 서울 금천구 가산디지털2로 135, 어반워크1차 3층 333호 (우)08504</p>
                     </div>
                 </div>
@@ -355,9 +476,10 @@
 
     <footer class="bg-ink-black text-parchment-white">
         <div class="container mx-auto px-6 py-10 text-center">
-             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwacenter.png" alt="화원 조경기술사사무소 로고" class="h-12 md:h-16 mx-auto footer-logo object-contain">
-            <p class="mt-4 text-xs text-gray-500">서울 금천구 가산디지털2로 135, 어반워크1차 3층 333호 (우)08504</p>
-            <p class="font-eng mt-4 text-xs text-gray-500">&copy; 2025 Hwawon Associates. All rights reserved.</p>
+             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwacenter.png" alt="화원 조경기술사사무소 로고" class="h-12 md:h-16 mx-auto footer-logo object-contain" onerror="this.style.display='none';">
+            <p class="mt-4 font-eng text-sm text-gray-400">HWAWON Associates · 공간을 장소로 만드는 어소시에이츠</p>
+            <p class="mt-2 text-xs text-gray-500">서울 금천구 가산디지털2로 135, 어반워크1차 3층 333호 (우)08504</p>
+            <p class="font-eng mt-4 text-xs text-gray-500">&copy; 2026 HWAWON Associates. All rights reserved.</p>
         </div>
     </footer>
 
@@ -371,46 +493,29 @@
             mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
             // ============================================================
-            // ★ [보안 우회] 깃허브가 키를 삭제하지 못하게 '쪼개서' 입력
+            // 설계 문답(Q&A) — Claude 연결
+            // 키는 코드에 두지 않습니다. 아래 주소의 서버리스 함수가
+            // Anthropic API 키를 안전하게 보관하고 Claude를 호출합니다.
+            // 함수 배포 후, 발급받은 주소로 아래 QNA_ENDPOINT 값을 바꿔주세요.
             // ============================================================
-            
-            // 1. 새 키의 "앞부분 절반"만 아래 따옴표 안에 넣으세요.
-            const keyPart1 = "AIzaSyAoFepUAjTs3W"; 
-            
-            // 2. 새 키의 "뒷부분 절반"만 아래 따옴표 안에 넣으세요.
-            const keyPart2 = "Pe3zOeGNYmyZcryF6svqw"; 
+            const QNA_ENDPOINT = "https://hwawon-qna.YOUR-SUBDOMAIN.workers.dev";
 
-            // 여기서 합체! (깃허브 로봇은 이걸 모릅니다)
-            const API_KEY = (keyPart1 + keyPart2).trim();
-
-            // ★ 모델 주소: 1.5 Flash (가장 빠르고 안정적)
-            const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
-
-            async function callGemini(prompt) {
-                // 키가 제대로 안 합쳐졌으면 경고
-                if(API_KEY.includes("여기에_키") || API_KEY.length < 10) {
-                    alert("코드에 API 키를 입력해주세요!"); return;
+            async function callClaude(question) {
+                if (QNA_ENDPOINT.includes("YOUR-SUBDOMAIN")) {
+                    return "설계 문답 기능을 준비 중입니다. 잠시 후 다시 시도해 주세요.";
                 }
-
-                const finalUrl = `${API_URL}?key=${API_KEY}`;
-                
                 try {
-                    const response = await fetch(finalUrl, {
+                    const response = await fetch(QNA_ENDPOINT, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] })
+                        body: JSON.stringify({ question })
                     });
-
-                    // 404가 뜨면 여기서 잡힙니다
                     if (!response.ok) {
-                        const errorData = await response.json().catch(() => ({}));
-                        console.error("API 에러:", errorData); 
+                        console.error("서버 응답 오류:", response.status);
                         throw new Error(`서버 응답 오류: ${response.status}`);
                     }
-                    
-                    const result = await response.json();
-                    return result.candidates[0].content.parts[0].text;
-
+                    const data = await response.json();
+                    return data.answer || "죄송합니다. 답변을 가져오지 못했습니다.";
                 } catch (error) {
                     console.error("연결 실패:", error);
                     return "죄송합니다. 잠시 후 다시 시도해 주세요.";
@@ -427,20 +532,11 @@
                 qnaBtn.addEventListener('click', async () => {
                     const topic = qnaInput.value.trim();
                     if (!topic) { alert("질문 내용을 입력해주세요."); return; }
-                    
                     qnaResults.classList.add('hidden');
                     qnaLoading.classList.remove('hidden');
                     qnaBtn.disabled = true;
 
-                    const prompt = `
-                        당신은 서울 금천구 '화원 조경기술사사무소'의 대표입니다.
-                        '화원의 별' 철학과 '검이불루 화이불치' 가치를 바탕으로 답변하세요.
-                        질문: "${topic}"
-                        답변 형식: ### [전문가의 답변] 내용...
-                    `;
-
-                    let resultText = await callGemini(prompt);
-                    
+                    let resultText = await callClaude(topic);
                     if(resultText) {
                         resultText = resultText
                             .replace(/### (.*)/g, '<h3 class="font-serif text-xl font-bold text-peacock-green mb-4">$1</h3>')
@@ -448,20 +544,32 @@
                             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                         qnaResults.innerHTML = resultText;
                     }
-
                     qnaLoading.classList.add('hidden');
                     qnaResults.classList.remove('hidden');
                     qnaBtn.disabled = false;
                 });
                 qnaInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') qnaBtn.click(); });
             }
-            
-            // 헤더
+
+            // --- 헤더 그림자 ---
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) header.classList.add('shadow-sm');
                 else header.classList.remove('shadow-sm');
             });
+
+            // --- 스크롤 시 현재 섹션 nav 활성화 ---
+            const sections = document.querySelectorAll('main section, #hero');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(l => l.classList.toggle('active-nav', l.dataset.section === id));
+                    }
+                });
+            }, { rootMargin: '-40% 0px -55% 0px' });
+            sections.forEach(s => navObserver.observe(s));
         });
     </script>
 </body>
