@@ -78,16 +78,16 @@
         .hexagram svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
         .tri { fill: none; stroke-width: 2; stroke-dasharray: 1100; stroke-dashoffset: 1100; transition: stroke-dashoffset 1.4s ease; }
         .hexagram.in .tri { stroke-dashoffset: 0; }
-        .tri-method { stroke: var(--peacock-green); }
-        .tri-identity { stroke: #9C7A3C; transition-delay: .35s; }
-        .hex-core { fill: var(--peacock-green); opacity: 0; transition: opacity 1s 1.1s ease; }
+        .tri-method { stroke: #2E6B62; }
+        .tri-identity { stroke: #6AA39A; transition-delay: .35s; }
+        .hex-core { fill: #2E6B62; opacity: 0; transition: opacity 1s 1.1s ease; }
         .hexagram.in .hex-core { opacity: .07; }
-        .hex-core-line { fill: none; stroke: var(--peacock-green); stroke-width: 1; opacity: 0; transition: opacity 1s 1.1s ease; }
+        .hex-core-line { fill: none; stroke: #2E6B62; stroke-width: 1; opacity: 0; transition: opacity 1s 1.1s ease; }
         .hexagram.in .hex-core-line { opacity: .4; }
         .core-mark { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; opacity: 0; transition: opacity 1s 1.3s ease; }
         .hexagram.in .core-mark { opacity: 1; }
-        .core-mark .ch { font-family: 'Nanum Myeongjo', serif; font-weight: 800; font-size: clamp(1.4rem,3vw,1.8rem); color: var(--peacock-green); line-height: 1; }
-        .core-mark .cap { font-size: .58rem; letter-spacing: .28em; color: #9C7A3C; margin-top: 6px; text-transform: uppercase; }
+        .core-mark .ch { font-family: 'Nanum Myeongjo', serif; font-weight: 800; font-size: clamp(1.6rem,3.5vw,2.1rem); color: #2E6B62; line-height: 1; letter-spacing: .04em; }
+        .core-mark .cap { font-size: .82rem; letter-spacing: .28em; color: #6AA39A; margin-top: 7px; text-transform: uppercase; }
         .hpt { position: absolute; width: max-content; opacity: 0; transition: opacity .6s ease; }
         .hexagram.in .hpt { opacity: 1; }
         .hexagram.in .hpt.d1 { transition-delay: 1.0s; }
@@ -96,11 +96,11 @@
         .hexagram.in .hpt.d4 { transition-delay: 1.3s; }
         .hexagram.in .hpt.d5 { transition-delay: 1.4s; }
         .hexagram.in .hpt.d6 { transition-delay: 1.5s; }
-        .hpt .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
-        .hpt .name.han { font-family: 'Nanum Myeongjo', serif; font-weight: 800; font-size: 1.15rem; }
-        .hpt .sub { font-size: .72rem; color: #5a665f; margin-top: 1px; }
-        .hpt.method .name { color: var(--peacock-green); }
-        .hpt.identity .name { color: #9C7A3C; }
+        .hpt .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.55rem; line-height: 1.1; }
+        .hpt .name.han { font-family: 'Nanum Myeongjo', serif; font-weight: 800; font-size: 1.7rem; }
+        .hpt .sub { font-size: 1.0rem; color: #5a665f; margin-top: 3px; }
+        .hpt.method .name { color: #2E6B62; }
+        .hpt.identity .name { color: #6AA39A; }
         .hpt.p-top { left: 50%; top: 23.7%; transform: translate(-50%,-128%); text-align: center; }
         .hpt.p-tr  { left: 72.8%; top: 36.8%; transform: translate(14px,-50%); text-align: left; }
         .hpt.p-br  { left: 72.8%; top: 63.2%; transform: translate(14px,-50%); text-align: left; }
@@ -108,8 +108,8 @@
         .hpt.p-bl  { left: 27.2%; top: 63.2%; transform: translate(-14px,-50%) translateX(-100%); text-align: right; }
         .hpt.p-tl  { left: 27.2%; top: 36.8%; transform: translate(-14px,-50%) translateX(-100%); text-align: right; }
         @media (max-width: 560px) {
-            .hpt .name, .hpt .name.han { font-size: .9rem; }
-            .hpt .sub { display: none; }
+            .hpt .name, .hpt .name.han { font-size: 1.25rem; }
+            .hpt .sub { font-size: .82rem; }
             .hpt.p-tr, .hpt.p-br { transform: translate(7px,-50%); }
             .hpt.p-bl, .hpt.p-tl { transform: translate(-7px,-50%) translateX(-100%); }
         }
@@ -172,9 +172,11 @@
                 <p class="font-eng mt-4 text-lg md:text-2xl text-peacock-green tracking-tight font-bold">HWAWON Associates</p>
                 <p class="mt-8 text-lg md:text-2xl font-serif text-ink-black">공간을 장소로 만드는 조경기술사사무소</p>
                 <p class="mt-4 text-base md:text-lg text-peacock-green font-serif">
-                    꽃의 정원 · 어울림의 뜰 · 이야기의 공원 <span class="text-sm text-stone-gray ml-1">花苑 · 和園 · 話園</span>
+                    <span class="block"><span class="font-bold">和</span> 조화의 공간</span>
+                    <span class="block mt-1"><span class="font-bold">花</span> 아름다움으로 행복을 주는 공간</span>
+                    <span class="block mt-1"><span class="font-bold">話</span> 삶의 이야기가 쌓이는 서사의 공간</span>
                 </p>
-                <p class="mt-8 text-lg md:text-xl font-light text-dark-gray max-w-2xl leading-relaxed">
+                <p class="mt-8 text-lg md:text-xl font-serif text-dark-gray max-w-2xl leading-relaxed">
                     화원은 빈터에 의미를 새겨, 공간(space)을 장소(place)로 거듭나게 합니다.
                 </p>
             </div>
@@ -234,7 +236,7 @@
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">화원의 별</h2>
                 <p class="font-eng text-peacock-green mt-2">The Star of HWAWON</p>
                 <p class="mt-6 text-lg text-dark-gray">
-                    화원의 별은 두 개의 삼각형이 만나 완성됩니다. 형태·기능·감각이라는 <strong class="font-medium text-ink-black">디자인 가치(▲)</strong>와, 꽃·어울림·이야기라는 <strong class="font-medium text-ink-black">화원의 정체성(▽)</strong>이 포개져 하나의 별을 이루고, 그 중심에서 공간은 비로소 장소가 됩니다.
+                    화원의 별은 두 개의 삼각형이 만나 완성됩니다. 형태·기능·감각이라는 <strong class="font-medium text-ink-black">디자인 가치(▲)</strong>와, 조화·아름다움·서사라는 <strong class="font-medium text-ink-black">화원의 정체성 3HWA(▽)</strong>가 포개져 하나의 별을 이루고, 그 중심에서 공간은 비로소 장소가 됩니다.
                 </p>
             </div>
 
@@ -246,15 +248,15 @@
                     <polygon class="tri tri-method" points="380,180 206.8,480 553.2,480"/>
                     <polygon class="tri tri-identity" points="380,580 206.8,280 553.2,280"/>
                 </svg>
-                <div class="core-mark"><div class="ch">場</div><div class="cap">Place</div></div>
+                <div class="core-mark"><div class="ch">장소</div><div class="cap">Place</div></div>
                 <!-- ▲ 디자인 가치 -->
                 <div class="hpt method p-top d1"><div class="name">Form</div><div class="sub">형태</div></div>
-                <div class="hpt method p-br d3"><div class="name">Function</div><div class="sub">기능</div></div>
-                <div class="hpt method p-bl d5"><div class="name">Sense</div><div class="sub">감각</div></div>
-                <!-- ▽ 화원의 정체성 -->
-                <div class="hpt identity p-tr d2"><div class="name han">花苑</div><div class="sub">꽃의 정원</div></div>
-                <div class="hpt identity p-bot d4"><div class="name han">和園</div><div class="sub">어울림의 뜰</div></div>
-                <div class="hpt identity p-tl d6"><div class="name han">話園</div><div class="sub">이야기의 공원</div></div>
+                <div class="hpt method p-br d3"><div class="name">Sense</div><div class="sub">감각</div></div>
+                <div class="hpt method p-bl d5"><div class="name">Function</div><div class="sub">기능</div></div>
+                <!-- ▽ 화원의 정체성 (3HWA) -->
+                <div class="hpt identity p-tr d2"><div class="name han">花</div><div class="sub">꽃 화</div></div>
+                <div class="hpt identity p-bot d4"><div class="name han">話</div><div class="sub">이야기 화</div></div>
+                <div class="hpt identity p-tl d6"><div class="name han">和</div><div class="sub">조화로울 화</div></div>
             </div>
 
             <!-- 두 삼각형 설명 -->
@@ -285,21 +287,21 @@
                 <div class="bg-white p-8 shadow-sm">
                     <div class="flex items-baseline gap-3 mb-1">
                         <h3 class="font-serif text-2xl font-bold text-peacock-green">▽ 화원의 정체성</h3>
-                        <span class="font-eng text-sm text-stone-gray">花苑 · 和園 · 話園</span>
+                        <span class="font-eng text-sm text-stone-gray">和 · 花 · 話</span>
                     </div>
-                    <p class="text-sm text-stone-gray font-light mb-6">화원이라는 이름에 담긴 세 겹의 뜻입니다.</p>
+                    <p class="text-sm text-stone-gray font-light mb-6">세 가지 화(和·花·話)가 모여 화원의 정체성, 3HWA가 됩니다.</p>
                     <div class="space-y-5">
                         <div>
-                            <p class="font-serif font-bold text-lg text-ink-black"><span class="text-peacock-green">花苑</span> 꽃의 정원</p>
-                            <p class="text-dark-gray font-light mt-1">흙을 일구어 아름다움을 피우는 마음. 가장 사적인 정원에서 출발한, 화원의 뿌리.</p>
+                            <p class="font-serif font-bold text-lg text-ink-black">和 <span class="font-serif text-peacock-green text-base ml-1">조화로울 화</span></p>
+                            <p class="text-dark-gray font-light mt-1">모든 요소가 어우러지는 조화의 공간. 사람과 자연, 주변과 대상이 하나로 어울립니다.</p>
                         </div>
                         <div>
-                            <p class="font-serif font-bold text-lg text-ink-black"><span class="text-peacock-green">和園</span> 어울림의 뜰</p>
-                            <p class="text-dark-gray font-light mt-1">사람과 자연이, 전문가와 전문가가 대등하게 어우러지는 조화의 터.</p>
+                            <p class="font-serif font-bold text-lg text-ink-black">花 <span class="font-serif text-peacock-green text-base ml-1">꽃 화</span></p>
+                            <p class="text-dark-gray font-light mt-1">아름다움으로 행복을 주는 공간. 보는 이의 마음을 어루만지는 아름다움을 짓습니다.</p>
                         </div>
                         <div>
-                            <p class="font-serif font-bold text-lg text-ink-black"><span class="text-peacock-green">話園</span> 이야기의 공원</p>
-                            <p class="text-dark-gray font-light mt-1">땅에 깃든 시간과 서사를 읽어, 장소에 이야기를 새기는 손.</p>
+                            <p class="font-serif font-bold text-lg text-ink-black">話 <span class="font-serif text-peacock-green text-base ml-1">이야기 화</span></p>
+                            <p class="text-dark-gray font-light mt-1">삶의 이야기가 쌓이는 서사의 공간. 땅에 깃든 시간과 기억으로 장소성을 빚습니다.</p>
                         </div>
                     </div>
                 </div>
@@ -336,12 +338,10 @@
                 <!-- 1 정원 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
                     <div class="text-peacock-green mb-5">
-                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M32 56 L32 16"/>
-                            <path d="M32 20 Q23 19 17 13 M32 20 Q41 19 47 13"/>
-                            <path d="M32 29 Q21 28 14 21 M32 29 Q43 28 50 21"/>
-                            <path d="M32 39 Q24 38 19 33 M32 39 Q40 38 45 33"/>
-                            <path d="M26 56 L38 56"/>
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M24 46 L40 46 L37 57 L27 57 Z"/><path d="M32 46 L32 28"/>
+                            <path d="M32 38 C 24 36 20 28 20 22 C 28 24 31 30 32 38"/>
+                            <path d="M32 34 C 40 32 44 24 44 18 C 36 20 33 26 32 34"/>
                         </svg>
                     </div>
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">01</p>
@@ -352,14 +352,9 @@
                 <!-- 2 놀이터 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
                     <div class="text-peacock-green mb-5">
-                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M44 16 L44 50"/>
-                            <path d="M38 24 L44 24 M38 32 L44 32 M38 40 L44 40 M38 48 L44 48"/>
-                            <path d="M44 20 Q22 24 16 50"/>
-                            <path d="M16 50 Q12 53 18 51"/>
-                            <path d="M12 52 L52 52"/>
-                            <circle cx="40" cy="13" r="4.5"/>
-                            <path d="M37.8 13.5 Q40 16 42.2 13.5"/>
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 50 L48 50"/><path d="M19 48 L35 26"/><path d="M19 48 Q15 52 20 51"/>
+                            <path d="M35 26 L44 26"/><path d="M44 26 L44 50"/><path d="M39 34 L44 34 M39 42 L44 42"/>
                         </svg>
                     </div>
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">02</p>
@@ -370,14 +365,9 @@
                 <!-- 3 공원 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
                     <div class="text-peacock-green mb-5">
-                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="42" cy="22" r="11"/>
-                            <path d="M42 33 L42 52"/>
-                            <circle cx="22" cy="20" r="4.5"/>
-                            <path d="M22 24.5 L22 40"/>
-                            <path d="M22 40 L17 52 M22 40 L27 52"/>
-                            <path d="M22 30 L14 27 M22 30 Q30 31 35 36"/>
-                            <path d="M12 52 L52 52"/>
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="32" cy="24" r="13"/><path d="M32 37 L32 54"/>
+                            <path d="M32 46 L25 40 M32 44 L39 38"/><path d="M24 54 L40 54"/>
                         </svg>
                     </div>
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">03</p>
@@ -388,13 +378,9 @@
                 <!-- 4 단지 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
                     <div class="text-peacock-green mb-5">
-                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="13" y="13" width="38" height="38" rx="2" stroke-dasharray="4 3"/>
-                            <path d="M13 44 Q28 38 32 28 Q36 18 51 20"/>
-                            <rect x="20" y="22" width="9" height="12"/>
-                            <circle cx="40" cy="38" r="5"/>
-                            <path d="M40 43 L40 47"/>
-                            <circle cx="44" cy="26" r="3.5"/>
+                        <svg viewBox="0 0 64 64" class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 54 L48 54"/><rect x="18" y="28" width="13" height="26"/><rect x="33" y="18" width="14" height="36"/>
+                            <path d="M22 34 H27 M22 40 H27 M22 46 H27"/><path d="M37 24 H43 M37 31 H43 M37 38 H43 M37 45 H43"/>
                         </svg>
                     </div>
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">04</p>
@@ -430,7 +416,7 @@
                         </svg>
                     </div>
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">06</p>
-                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">수변 · 녹지축</h3>
+                    <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">수변 · 녹지 인프라</h3>
                     <p class="font-eng text-sm text-peacock-green">Waterfront · Greenway</p>
                     <p class="text-sm text-dark-gray font-light mt-3">물길과 녹지로 도시를 잇는 경관 기반시설. 끊긴 자연을 다시 연결합니다.</p>
                 </div>
