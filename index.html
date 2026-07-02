@@ -16,7 +16,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* ===== 기본 리셋 (Tailwind Preflight 대체) ===== */
@@ -51,6 +51,7 @@
         }
         .font-serif { font-family: 'Nanum Myeongjo', serif; }
         .font-eng { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-logo { font-family: 'Black Han Sans', 'Noto Sans KR', sans-serif; font-weight: 400; letter-spacing: .02em; }
         .nav-link { transition: color 0.3s ease; }
         .nav-link:hover { color: var(--peacock-green); }
         .active-nav { color: var(--peacock-green); font-weight: 700; }
@@ -162,8 +163,8 @@
 .focus\:ring-2:focus{box-shadow:0 0 0 2px #0A4F44}
 .focus\:ring-peacock-green:focus{box-shadow:0 0 0 2px #0A4F44}
 .font-bold{font-weight:700}
-.font-light{font-weight:300}
-.font-medium{font-weight:500}
+.font-light{font-weight:400}
+.font-medium{font-weight:600}
 .gap-2{gap:0.5rem}
 .gap-3{gap:0.75rem}
 .gap-8{gap:2rem}
@@ -316,6 +317,12 @@
 .lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .lg\:h-56{height:14rem}
 }
+    
+@media(min-width:768px){.md\:whitespace-nowrap{white-space:nowrap}}
+    .not-italic{font-style:normal}
+@media(min-width:768px){.md\:italic{font-style:italic}}
+    .h-36{height:9rem}
+@media(min-width:768px){.md\:h-48{height:12rem}}
     </style>
 </head>
 <body class="bg-parchment-white">
@@ -402,7 +409,7 @@
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">설계 가치</h2>
                 <p class="font-eng text-peacock-green mt-2">Our Values</p>
-                <p class="mt-6 text-lg text-dark-gray">화원이 모든 설계의 바탕으로 삼는 세 가지 가치입니다. 사람을 향하고, 시간을 잇고, 장소의 혼을 담습니다.</p>
+                <p class="mt-6 text-lg text-dark-gray md:whitespace-nowrap">화원이 모든 설계의 바탕으로 삼는 세 가지 가치입니다. 사람을 향하고, 시간을 잇고, 장소의 혼을 담습니다.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="mission-card bg-white p-8 shadow-sm hover:shadow-md transition-shadow border-t-2 border-peacock-green">
@@ -429,7 +436,7 @@
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight">화원의 별</h2>
                 <p class="font-eng text-peacock-green mt-2">The Star of HWAWON</p>
                 <p class="mt-6 text-lg text-dark-gray">
-                    화원의 별은 두 개의 삼각형이 만나 완성됩니다. 형태·기능·감각이라는 <strong class="font-medium text-ink-black">디자인 가치(▲)</strong>와, 조화·아름다움·서사라는 <strong class="font-medium text-ink-black">화원의 정체성 3HWA(▽)</strong>가 포개져 하나의 별을 이루고, 그 중심에서 공간은 비로소 장소가 됩니다.
+                    화원의 별은 두 개의 삼각형이 만나 완성됩니다. 형태·기능·감각이라는 <strong class="font-medium text-ink-black">디자인 가치(▲)</strong>와, 조화·아름다움·서사라는 <strong class="font-medium text-ink-black">화원의 정체성 3HWA(▽)</strong>가 포개져 하나의 별을 이룹니다.<br class="hidden md:block">그 중심에서, 공간은 비로소 장소가 됩니다.
                 </p>
             </div>
 
@@ -503,10 +510,25 @@
             <!-- 별의 합일 -->
             <div class="text-center max-w-3xl mx-auto mt-20">
                 <h3 class="font-serif text-3xl font-bold text-ink-black tracking-tight">화원의 별 : 견고한 우아함</h3>
-                <p class="mt-6 text-lg text-dark-gray">
-                    두 삼각형이 만나 완성된 화원의 별은, 디자인 가치와 화원의 정체성이 서로를 비추고 엮이며 만들어내는 완벽한 합일을 의미합니다. 그 조화의 정점에서, 화원이 추구하는 궁극의 미학 <strong class="font-medium text-ink-black">견고한 우아함(A Robust Elegance)</strong>이 탄생합니다.
+                <p class="mt-10 text-lg text-dark-gray">
+                    두 삼각형이 만나 완성된 화원의 별은, 디자인 가치와 화원의 정체성이 서로를 비추고 엮이며 만들어내는 완벽한 합일을 의미합니다.<br class="hidden md:block">그 조화의 정점에서, 화원이 추구하는 궁극의 미학 <strong class="font-medium text-ink-black">견고한 우아함</strong> <em class="font-eng not-italic md:italic text-peacock-green">Robust Elegance</em>이 탄생합니다.
                 </p>
-                <div class="mt-10 pt-8 border-t border-stone-gray/20 max-w-2xl mx-auto">
+            </div>
+
+            <!-- 화원의 별 로고 (설명 문구 하단) -->
+            <div class="flex justify-center mt-12">
+                <div class="w-full max-w-sm aspect-square flex items-center justify-center p-6">
+                    <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png"
+                         alt="화원의 별 심벌"
+                         class="star-logo w-full h-full object-contain"
+                         onerror="this.onerror=null;this.replaceWith(document.getElementById('star-fallback').content.cloneNode(true));">
+                    <template id="star-fallback"><div class="w-full h-full border-2 border-dashed border-stone-gray/30 flex flex-col items-center justify-center text-stone-gray/60 gap-2"><span class="font-serif text-lg">화원의 별 로고</span><span class="font-eng text-xs">hwalogo.png</span></div></template>
+                </div>
+            </div>
+
+            <!-- 사훈: 모토 서예 + 뜻풀이 -->
+            <div class="text-center max-w-3xl mx-auto mt-12">
+                <div class="max-w-2xl mx-auto pt-8 border-t border-stone-gray/20">
                     <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/motto.png"
                          alt="검이불루 화이불치 儉而不陋 華而不侈 서예"
                          class="mx-auto w-full max-w-[420px] h-auto object-contain"
@@ -515,21 +537,10 @@
                     <template id="motto-fallback"><p class="font-serif text-2xl md:text-3xl font-bold text-peacock-green tracking-tight">儉而不陋 華而不侈</p></template>
                     <p class="mt-4 font-serif text-base text-ink-black">검이불루 화이불치</p>
                     <p class="mt-2 font-eng italic text-sm text-stone-gray">Frugal but not shabby, splendid but not extravagant</p>
-                    <p class="mt-5 text-base text-dark-gray font-light leading-relaxed">
-                        검소하되 누추하지 않고, 화려하되 사치스럽지 않다. 백제의 미의식에서 비롯되었으나, 절제 속에서 품격을 잃지 않는 이 정신은 한국의 미학을 관통합니다. 화원은 이를 사훈으로 삼아, 모든 공간에 견고한 우아함을 새깁니다.
-                    </p>
                 </div>
-            </div>
-
-            <!-- 화원의 별 로고 (견고한 우아함 아래) -->
-            <div class="flex justify-center mt-16">
-                <div class="w-full max-w-sm aspect-square flex items-center justify-center p-6">
-                    <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwalogo.png"
-                         alt="화원의 별 심벌"
-                         class="star-logo w-full h-full object-contain"
-                         onerror="this.onerror=null;this.replaceWith(document.getElementById('star-fallback').content.cloneNode(true));">
-                    <template id="star-fallback"><div class="w-full h-full border-2 border-dashed border-stone-gray/30 flex flex-col items-center justify-center text-stone-gray/60 gap-2"><span class="font-serif text-lg">화원의 별 로고</span><span class="font-eng text-xs">hwalogo.png</span></div></template>
-                </div>
+                <p class="mt-5 max-w-2xl mx-auto text-base text-dark-gray font-light leading-relaxed">
+                    검소하되 누추하지 않고, 화려하되 사치스럽지 않다. 백제의 미의식에서 비롯되었으나, 절제 속에서 품격을 잃지 않는 이 정신은 한국의 미학을 관통합니다. 화원은 이를 사훈으로 삼아, 모든 공간에 견고한 우아함을 새깁니다.
+                </p>
             </div>
         </section>
 
@@ -566,7 +577,7 @@
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">02</p>
                     <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">놀이터</h3>
                     <p class="font-eng text-sm text-peacock-green">Playground</p>
-                    <p class="text-sm text-dark-gray font-light mt-3">모두가 함께 노는 통합놀이터. 장애·비장애의 경계 없이 누구나 어울리는 <span class="text-peacock-green">인클루시브 디자인(Inclusive Design)</span>을 구현합니다.</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">모두가 함께 노는 통합놀이터. 장애·비장애의 경계 없이 누구나 어울리는 <span class="text-peacock-green">인클루시브 디자인 <em class="font-eng italic">Inclusive Design</em></span>을 구현합니다.</p>
                 </div>
                 <!-- 3 공원 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
@@ -579,7 +590,7 @@
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">03</p>
                     <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">공원</h3>
                     <p class="font-eng text-sm text-peacock-green">Park</p>
-                    <p class="text-sm text-dark-gray font-light mt-3">도시민이 일상에서 누리는 공공 녹지. 누구나 안전하고 편하게 다다르는 <span class="text-peacock-green">무장애(BF) 공원</span>을 설계합니다.</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">도시민이 일상에서 누리는 공공 녹지. 누구나 안전하고 편하게 다다르는 <span class="text-peacock-green">무장애 <em class="font-eng italic">BF</em> 공원</span>을 설계합니다.</p>
                 </div>
                 <!-- 4 단지 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
@@ -592,7 +603,7 @@
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">04</p>
                     <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">단지</h3>
                     <p class="font-eng text-sm text-peacock-green">Complex</p>
-                    <p class="text-sm text-dark-gray font-light mt-3">주거·업무·산업단지의 외부공간. 대지 고유의 맥락을 읽어, 그곳만의 <span class="text-peacock-green">장소성(Genius Loci)</span>을 담은 단지를 짓습니다.</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">주거·업무·산업단지의 외부공간. 대지 고유의 맥락을 읽어, 그곳만의 <span class="text-peacock-green">장소성 <em class="font-eng italic">Genius Loci</em></span>을 담은 단지를 짓습니다.</p>
                 </div>
                 <!-- 5 리조트 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
@@ -608,7 +619,7 @@
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">05</p>
                     <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">레저 · 여가공간</h3>
                     <p class="font-eng text-sm text-peacock-green">Leisure &amp; Recreation</p>
-                    <p class="text-sm text-dark-gray font-light mt-3">휴양과 관광의 경관. 발길을 끌어당기는 <span class="text-peacock-green">킬러 어트랙션(Killer Attraction)</span>으로 머무는 시간을 경험으로 설계합니다.</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">휴양과 관광의 경관. 발길을 끌어당기는 <span class="text-peacock-green">킬러 콘텐츠 <em class="font-eng italic">Killer Content</em></span>으로 머무는 시간을 경험으로 설계합니다.</p>
                 </div>
                 <!-- 6 수변·녹지축 -->
                 <div class="type-item bg-parchment-white p-8 md:p-10 text-center hover:bg-white transition-colors">
@@ -624,7 +635,7 @@
                     <p class="font-eng text-xs text-stone-gray tracking-widest mb-1">06</p>
                     <h3 class="type-ko font-serif font-bold text-xl text-ink-black transition-colors">수변 · 녹지 인프라</h3>
                     <p class="font-eng text-sm text-peacock-green">Waterfront · Greenway</p>
-                    <p class="text-sm text-dark-gray font-light mt-3">물길과 녹지로 도시를 잇는 경관 기반시설. <span class="text-peacock-green">자연기반해법(NbS)</span>과 생태(Ecology)로 기후 위기에 대응하는 회복력(Resilience) 있는 도시를 만듭니다.</p>
+                    <p class="text-sm text-dark-gray font-light mt-3">물길과 녹지로 도시를 잇는 경관 기반시설. <span class="text-peacock-green">자연기반해법 <em class="font-eng italic">NbS</em></span>과 생태 <em class="font-eng italic">Ecology</em>로 기후 위기에 대응하는 회복력 <em class="font-eng italic">Resilience</em> 있는 도시를 만듭니다.</p>
                 </div>
             </div>
         </section>
@@ -636,6 +647,39 @@
                 <p class="font-eng text-peacock-green mt-2">Selected Works</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div class="card group cursor-pointer">
+                    <div class="w-full overflow-hidden rounded-sm">
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center overflow-hidden">
+                             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work7.png" alt="우주항공청 청사 건립 임대형 민자투자사업" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image Preparing</div>';">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">우주항공청 청사 건립 임대형 민자투자사업</h3>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2026, Complex</p>
+                    </div>
+                </div>
+                <div class="card group cursor-pointer">
+                    <div class="w-full overflow-hidden rounded-sm">
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center overflow-hidden">
+                             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work8.png" alt="현풍 성하리 현풍천 보행환경 개선사업" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image Preparing</div>';">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">현풍 성하리 현풍천 보행환경 개선사업</h3>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2026, Waterfront</p>
+                    </div>
+                </div>
+                <div class="card group cursor-pointer">
+                    <div class="w-full overflow-hidden rounded-sm">
+                        <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center overflow-hidden">
+                             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/work9.png" alt="안양천 구현전망대 정비사업" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image Preparing</div>';">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title font-serif font-bold text-xl transition-colors group-hover:text-peacock-green">안양천 구현전망대 정비사업</h3>
+                        <p class="text-gray-500 text-sm mt-1 font-eng">2026, Waterfront</p>
+                    </div>
+                </div>
                 <div class="card group cursor-pointer">
                     <div class="w-full overflow-hidden rounded-sm">
                         <div class="card-img-container w-full aspect-[4/3] mb-4 flex items-center justify-center overflow-hidden">
@@ -710,7 +754,7 @@
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-4">묻고 답하기</h2>
-                    <p class="text-lg text-dark-gray">조경·설계에 대해 궁금한 점을 남겨주세요. 이메일로 정성껏 답변드립니다.</p>
+                    <p class="text-lg text-dark-gray">조경(계획/설계)에 대해 궁금한 점을 남겨주세요. 이메일로 정성껏 답변드립니다.</p>
                 </div>
                 <div class="max-w-2xl mx-auto">
                     <div class="space-y-3">
@@ -752,7 +796,7 @@
 
     <footer class="bg-ink-black text-parchment-white">
         <div class="container mx-auto px-6 py-10 text-center">
-             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwacenter.png" alt="화원 조경기술사사무소 로고" class="h-12 md:h-16 mx-auto footer-logo object-contain" onerror="this.style.display='none';">
+             <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/hwacenter.png" alt="화원 조경기술사사무소 로고" class="h-36 md:h-48 mx-auto footer-logo object-contain" onerror="this.style.display='none';">
             <p class="mt-4 font-eng text-sm text-gray-400">HWAWON Associates · 공간을 장소로 만드는 조경기술사사무소</p>
             <p class="mt-2 text-xs text-gray-500">서울 금천구 가산디지털2로 135, 어반워크1차 3층 333호 (우)08504</p>
             <p class="font-eng mt-4 text-xs text-gray-500">&copy; 2026 HWAWON Associates. All rights reserved.</p>
