@@ -324,6 +324,13 @@
 @media(min-width:768px){.md\:italic{font-style:italic}}
     .h-36{height:9rem}
 @media(min-width:768px){.md\:h-48{height:12rem}}
+    
+.py-8{padding-top:2rem;padding-bottom:2rem}
+.mb-2{margin-bottom:.5rem}
+.mt-8{margin-top:2rem}
+.mt-14{margin-top:3.5rem}
+.bg-gray-100{background-color:#f3f4f6}
+@media(min-width:768px){.md\:p-12{padding:3rem}}
     </style>
 </head>
 <body class="bg-parchment-white">
@@ -536,7 +543,7 @@
                          style="mix-blend-mode: multiply;"
                          onerror="this.onerror=null;this.replaceWith(document.getElementById('motto-fallback').content.cloneNode(true));">
                     <template id="motto-fallback"><p class="font-serif text-2xl md:text-3xl font-bold text-peacock-green tracking-tight">儉而不陋 華而不侈</p></template>
-                    <p class="mt-4 font-serif text-base text-ink-black">검이불루 화이불치</p>
+                    <p class="mt-6 font-serif text-2xl md:text-3xl font-bold text-ink-black">검이불루 화이불치</p>
                     <p class="mt-2 font-eng italic text-sm text-stone-gray">Frugal but not shabby, splendid but not extravagant</p>
                 </div>
                 <p class="mt-5 max-w-2xl mx-auto text-base text-dark-gray font-light leading-relaxed">
@@ -808,23 +815,46 @@
             <div class="text-center">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-black tracking-tight mb-4">연락처</h2>
                 <p class="text-lg text-dark-gray mb-12">당신의 장소가 될 이야기가 궁금합니다.</p>
-                <div class="bg-white p-8 shadow-sm w-full">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-10">
+                <div class="bg-white p-8 md:p-12 shadow-sm w-full">
+                    <!-- 브랜드 이미지 2컷 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto mb-12">
                         <div class="w-full aspect-[4/3] bg-gray-200 overflow-hidden flex items-center justify-center">
                              <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/nameplate.png" alt="화원 조경기술사사무소 명판" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>명판 이미지</p>';">
                         </div>
                         <div class="w-full aspect-[4/3] bg-gray-200 overflow-hidden flex items-center justify-center">
                              <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/nameplate2.png" alt="화원 조경기술사사무소 로고 사이니지" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>로고 이미지</p>';">
                         </div>
-                        <div class="w-full aspect-[4/3] bg-gray-200 overflow-hidden flex items-center justify-center">
-                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/location.png" alt="화원 조경기술사사무소 위치도" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = '<p class=text-gray-500>위치도</p>';">
+                    </div>
+
+                    <!-- 전화 / 이메일 / 주소 -->
+                    <div class="max-w-3xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-t border-b border-stone-gray/15 text-center">
+                            <div>
+                                <p class="text-xs tracking-widest text-peacock-green mb-2">전화</p>
+                                <p class="font-eng text-ink-black text-lg">02.6177.7365</p>
+                            </div>
+                            <div>
+                                <p class="text-xs tracking-widest text-peacock-green mb-2">이메일</p>
+                                <a href="mailto:hello@hwawon.pro" class="font-eng text-ink-black text-lg hover:text-peacock-green">hello@hwawon.pro</a>
+                            </div>
+                            <div>
+                                <p class="text-xs tracking-widest text-peacock-green mb-2">주소</p>
+                                <p class="text-ink-black text-sm leading-relaxed">서울 금천구 가산디지털2로 135,<br>어반워크1차 3층 333호 (우)08504</p>
+                            </div>
+                        </div>
+                        <!-- 웹사이트 -->
+                        <div class="text-center mt-8">
+                            <p class="text-xs tracking-widest text-peacock-green mb-2">웹사이트</p>
+                            <a href="https://www.hwawon.pro" target="_blank" rel="noopener noreferrer" class="font-eng text-peacock-green hover:underline text-xl">www.hwawon.pro</a>
                         </div>
                     </div>
-                    <div class="space-y-4 text-left md:text-center">
-                        <p><strong class="font-serif text-ink-black">전화:</strong> <span class="font-eng">02.6177.7365</span></p>
-                        <p><strong class="font-serif text-ink-black">이메일:</strong> <a href="mailto:hello@hwawon.pro" class="text-peacock-green hover:underline font-eng">hello@hwawon.pro</a></p>
-                        <p><strong class="font-serif text-ink-black">웹사이트:</strong> <a href="https://www.hwawon.pro" target="_blank" rel="noopener noreferrer" class="text-peacock-green hover:underline font-eng">www.hwawon.pro</a></p>
-                        <p><strong class="font-serif text-ink-black">주소:</strong> 서울 금천구 가산디지털2로 135, 어반워크1차 3층 333호 (우)08504</p>
+
+                    <!-- 오시는 길 (위치도 — 크게, 잘리지 않게) -->
+                    <div class="max-w-4xl mx-auto mt-14">
+                        <p class="text-xs tracking-widest text-peacock-green mb-4 text-center">오시는 길</p>
+                        <div class="w-full bg-gray-100 flex justify-center overflow-hidden rounded-sm border border-stone-gray/15">
+                            <img src="https://raw.githubusercontent.com/hwawonassociates/hwawon-portfolio/main/location.png" alt="화원 조경기술사사무소 위치도" class="w-full h-auto object-contain" onerror="this.parentElement.innerHTML = '<p class=text-gray-500 style=padding:3rem>위치도 준비 중</p>';">
+                        </div>
                     </div>
                 </div>
             </div>
